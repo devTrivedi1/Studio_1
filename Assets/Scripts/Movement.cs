@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    NavMeshAgent navMesh;
+
     void Start()
     {
-        Debug.Log("Test");
+        navMesh = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+       Move();
+    }
+
+    void Move()
+    {
+        if(Input.GetMouseButtonUp(0) && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hitInfo))
+        {   
+            navMesh.SetDestination(hitInfo.point);
+        }
     }
 }
