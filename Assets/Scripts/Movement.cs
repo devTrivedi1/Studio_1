@@ -3,25 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Rigidbody))]
+
+
 public class Movement : MonoBehaviour
 {
-    NavMeshAgent navMesh;
+	public float speed;
 
-    void Start()
-    {
-        navMesh = GetComponent<NavMeshAgent>();
-    }
+	Vector3 targetPos;
+	bool isMoving = false;
 
-    void Update()
-    {
-       Move();
-    }
+	void Update()
+	{
 
-    void Move()
-    {
-        if(Input.GetMouseButtonUp(0) && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hitInfo))
-        {   
-            navMesh.SetDestination(hitInfo.point);
-        }
-    }
+		if (Input.GetButtonDown("Fire1"))
+		{
+			TargetPosition();
+            Debug.Log("Left click enabled");
+		}
+		if (isMoving)
+		{
+			Move();
+		}
+
+	}
+
+	void TargetPosition()
+	{
+		targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		targetPos.z = transform.position.z;
+		isMoving = true;
+        Debug.Log("TargetPosition");
+	}
+
+	void Move()
+	{
+
+		transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+		if (transform.position == targetPos)
+		{
+			isMoving = false;
+            Debug.Log("Move Function");
+		}
+	}
 }
