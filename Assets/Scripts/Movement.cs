@@ -8,42 +8,47 @@ using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
-	public float speed;
+    public float speed;
 
-	Vector3 targetPos;
-	bool isMoving = false;
+    Vector3 targetPos;
+    bool isMoving = false;
+   
+   
+    private void Start()
+    {
+       
+    }
+    void Update()
+    {
 
-	void Update()
-	{
-
-		if (Input.GetButtonDown("Fire1"))
-		{
-			TargetPosition();
+        if (Input.GetButtonDown("Fire1"))
+        {
+            TargetPosition();
             Debug.Log("Left click enabled");
-		}
-		if (isMoving)
-		{
-			Move();
-		}
+        }
+        if (isMoving)
+        {
+            Move();
+        }
 
-	}
+    }
 
-	void TargetPosition()
-	{
-		targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		targetPos.z = transform.position.z;
-		isMoving = true;
+    void TargetPosition()
+    {
+        targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        targetPos.y = transform.position.y;
+        isMoving = true;
         Debug.Log("TargetPosition");
-	}
+    }
 
-	void Move()
-	{
+    void Move()
+    {
 
-		transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-		if (transform.position == targetPos)
-		{
-			isMoving = false;
+       
+        if (transform.position == targetPos)
+        {
+            isMoving = false;
             Debug.Log("Move Function");
-		}
-	}
+        }
+    }
 }

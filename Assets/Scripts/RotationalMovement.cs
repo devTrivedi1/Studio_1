@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RotationalMovement : MonoBehaviour
 {
-    public float angleZ = 1.0f;
-    public float speedZ = 1.5f;
+    public float angleY = 1.0f;
+    public float speedY = 1.5f;
     public float angleX = 2f;
     public float speedX = 3f;
 
@@ -26,9 +26,9 @@ public class RotationalMovement : MonoBehaviour
 
     private void PlayerRotation()
     {
-        angleZ += speedZ * Input.GetAxis("Mouse Y");
+        angleY += speedY * Input.GetAxis("Mouse Y");
         angleX += speedX * Input.GetAxis("Mouse X");
         TurningPlayer = transform.InverseTransformDirection(TurningPlayer);
-        TurningPlayer = transform.eulerAngles = new Vector3(0, angleX + angleZ, 0);
+        TurningPlayer = transform.eulerAngles = new Vector3(0, angleY + angleX, 0);
     }
 }
