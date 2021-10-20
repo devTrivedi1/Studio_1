@@ -797,6 +797,7 @@ GameObject:
   - component: {fileID: 1272044147}
   - component: {fileID: 1272044149}
   - component: {fileID: 1272044148}
+  - component: {fileID: 1272044150}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -876,13 +877,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272044146}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 121c9c33f244bc044ac3da64ab31f5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   followPlayer: {fileID: 1293742935}
-  offSet: {x: 0, y: 25, z: -40}
+  offSet: {x: 0, y: 25, z: -50}
 --- !u!1 &1293742930
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,19 +999,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1293742936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1293742930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf730b2eea9cfb14d983ef02d0ee727f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotSpeed: 50
 --- !u!54 &1293742937
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1041,8 +1029,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerClicked: 0
   rotSpeed: 25
-  moveSpeed: 20
-  offset: {x: 0, y: 2, z: 0}
+  moveSpeed: 2
+  offset: {x: 0, y: 1.5, z: 0}
+  speedforce: 80
 --- !u!1 &1570455079
 GameObject:
   m_ObjectHideFlags: 0
