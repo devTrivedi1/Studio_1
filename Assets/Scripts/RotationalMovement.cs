@@ -8,7 +8,7 @@ public class RotationalMovement : MonoBehaviour
     public float speedY = 1.5f;
     public float angleX = 2f;
     public float speedX = 3f;
-
+   
     public Vector3 TurningPlayer;
 
     // Start is called before the first frame update
@@ -20,15 +20,19 @@ public class RotationalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         PlayerRotation();
+      
     }
 
     private void PlayerRotation()
     {
         angleY += speedY * Input.GetAxis("Mouse Y");
         angleX += speedX * Input.GetAxis("Mouse X");
+       
         TurningPlayer = transform.InverseTransformDirection(TurningPlayer);
-        TurningPlayer = transform.eulerAngles = new Vector3(0, angleY + angleX, 0);
+        TurningPlayer = transform.eulerAngles = new Vector3(0, angleX + angleY, 0);
+
+     
     }
+    
 }
