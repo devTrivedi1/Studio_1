@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public bool playerClicked;
     Quaternion playerRot;
     public int rotSpeed;
-    public int moveSpeed;
+    public float moveSpeed;
     public Vector3 offset;
 
     public Vector3 newPosition;
@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
             playerClicked = true;
             SetTargetPosition();
         }
+      
 
         // if (Input.GetMouseButtonUp(0))
         // {
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 1000))
         {
             targetPosition = hit.point;
-            Debug.Log(targetPosition);
+            //Debug.Log(targetPosition);
             //this.transform.LookAt(targetPosition);
             lookAtTarget = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y,
                 targetPosition.z - transform.position.z);

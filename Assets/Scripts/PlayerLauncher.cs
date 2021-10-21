@@ -2,86 +2,101 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Dev, I left in a bunch of Debugs, you can uncomment to see any values you want...
 public class PlayerLauncher : MonoBehaviour
 {
     Rigidbody rb;
     float holdStartTime;
-    float maxHoldTime = 3.0f;
-    public float speedforce = 100f;
-    public PlayerMovement playerMovement;
-    int speedBoost = 15;
-   
+    float maxChargeTime = 1.0f;
 
+    public float currentSpeedBoost;
+    public float maxSpeedBoost = 50;
+    public float speedMultiplier = 1f;//(for the speed boost).
+    public float maxSpeed = 130;//(player's speed plus the speed boost).
+
+    public PlayerMovement playerMovement;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        currentSpeedBoost = 0;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            playerMovement.moveSpeed += speedBoost;
-        }
-        ChargeLimitChecker();
-
+        ChargingUp();
+        WhileCharging();
+        MaxChargeTime();
+    }
+    private void FixedUpdate()
+    {
         ChargeRelease();
     }
 
-    private void ChargeRelease()
-    {
-        if (Input.GetMouseButtonUp(0))
-        {
-
-
-            //float holdDownTime = Time.time - holdStartTime;
-            //Launch(HoldDownForce(holdDownTime));
-            //StartCoroutine(SpeedBoost());
-            playerMovement.Move();
-            playerMovement.moveSpeed -= speedBoost;
-            Debug.Log("Move speed is " + playerMovement.moveSpeed);
-
-        }
-    }
-
-    private void ChargeLimitChecker()
+    private void WhileCharging()
     {
         if (Input.GetMouseButton(0))
         {
-            holdStartTime = Time.time;
-            Debug.Log("hold time is " + holdStartTime);
-            if (holdStartTime >= maxHoldTime)
+            currentSpeedBoost += Time.deltaTime * speedMultiplier;//value keeps increasing;
+            playerMovement.moveSpeed += currentSpeedBoost;
+            Debug.Log("Total speed is " + playerMovement.moveSpeed);
+
+            if (currentSpeedBoost > maxSpeedBoost)
             {
-                holdStartTime = maxHoldTime;
+                currentSpeedBoost = maxSpeedBoost;//speed boost won't go higher than the maxSpeedBoost;
             }
 
-            Debug.Log("Move speed is " + playerMovement.moveSpeed);
+
+
+            //Debug.Log("Added speed boost is " + currentSpeedBoost);
+            //Debug.Log("Movement speed is " + playerMovement.moveSpeed);
         }
     }
 
-    private void Launch(float force)
+    private void ChargingUp()
     {
-        /*rb.position = transform.position;
-        Vector3 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * -1f;
-        rb.velocity = direction * force;*/
-        playerMovement.SetTargetPosition();
-        //Vector3 pushPower = new Vector3(15, 0, 15);
-        //rb.AddForce(pushPower);
-      
-        playerMovement.moveSpeed += speedBoost;
+        if (Input.GetMouseButtonDown(0))
+        {
+            holdStartTime += Time.deltaTime;//keeps going up so long as you are holding the mouse. 
+        }
+
     }
-    private float HoldDownForce(float holdTime)
+
+    private void ChargeRelease()//player only moves when you release left click.
     {
-        float maxForceHoldTime = 3f;
-        float holdTimeNormalized = Mathf.Clamp01(holdTime / maxForceHoldTime);
-        float force = holdTimeNormalized * speedforce;
-        return force;
+        if (Input.GetMouseButtonUp(0))
+        {
+            playerMovement.SetTargetPosition();
+            playerMovement.Move();
+
+            bool playerReachedTarget = transform.position == playerMovement.newPosition;
+            if (playerReachedTarget)
+            {
+
+                playerMovement.moveSpeed -= currentSpeedBoost;//Dev I think the problem is here, it should be working, but when
+                //you release left click, the player's moveSpeed does not revert back to normal...I think we have to find the right place for this command.
+                Debug.Log("Final Speed is " + playerMovement.moveSpeed);
+                currentSpeedBoost = 0;
+            }
+
+        }
+
     }
-    //private IEnumerator SpeedBoost()
-    //{
-        //yield return new WaitForSeconds(3f);
-    //}
+    public void MaxChargeTime()//The code is correct, it's just being overruled because ChargeRelease(); is constantly called.
+    {
+        float holdTime = Time.time - holdStartTime;
+        if (holdTime > maxChargeTime)
+        {
+            holdTime = maxChargeTime;
+            ChargeRelease();
+        }
+        Debug.Log("Hold time is " + holdTime);
+
+    }
+
+
+
+
 }
