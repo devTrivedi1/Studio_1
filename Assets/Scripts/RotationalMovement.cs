@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class RotationalMovement : MonoBehaviour
 {
-    public float angleY = 1.0f;
-    public float speedY = 1.5f;
-    public float angleX = 2f;
+    private float angleY = 1.0f;
+    private float speedY = 1.5f;
+    private float angleX = 2f;
     public float speedX = 3f;
    
     public Vector3 TurningPlayer;
@@ -31,8 +31,6 @@ public class RotationalMovement : MonoBehaviour
        
         TurningPlayer = transform.InverseTransformDirection(TurningPlayer);
         TurningPlayer = transform.eulerAngles = new Vector3(0, angleX + angleY, 0);
-
-     
     }
     
 }

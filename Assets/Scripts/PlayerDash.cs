@@ -18,12 +18,5 @@ public class PlayerDash : MonoBehaviour
 
 	void Update()
 	{
-		if (direction == 0)
-		{
-			if (Input.GetMouseButtonUp(0))
-			{
-                
-			}
-		}
 	}
 }

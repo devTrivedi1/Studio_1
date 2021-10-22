@@ -47,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
         if (playerClicked)
         {
             Move();
-
         }
 
     }
@@ -70,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     public void Move()
     {
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, playerRot, rotSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, playerRot, moveSpeed * Time.deltaTime);
         newPosition = Vector3.MoveTowards(transform.position, targetPosition + offset, moveSpeed * Time.deltaTime);
         transform.position = newPosition;
     }

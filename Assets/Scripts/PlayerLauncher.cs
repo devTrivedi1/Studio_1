@@ -53,7 +53,7 @@ public class PlayerLauncher : MonoBehaviour
 
             if (currentSpeedBoost > maxSpeedBoost)
             {
-                currentSpeedBoost = maxSpeedBoost;//speed boost won't go higher than the maxSpeedBoost;
+                currentSpeedBoost = maxSpeedBoost; //speed boost won't go higher than the maxSpeedBoost;
             }
            
 
@@ -69,7 +69,7 @@ public class PlayerLauncher : MonoBehaviour
 
     /*private void ChargingUp()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             holdStartTime += Time.deltaTime;//keeps going up so long as you are holding the mouse. 
 
@@ -79,7 +79,7 @@ public class PlayerLauncher : MonoBehaviour
 
     private void ChargeRelease()//player only moves when you release left click.
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButton(0))
         {
             playerMovement.SetTargetPosition();
             playerMovement.Move();
@@ -102,13 +102,13 @@ public class PlayerLauncher : MonoBehaviour
     }
     /*public void MaxChargeTime()//The code is correct, it's just being overruled because ChargeRelease(); is constantly called.
     {
-        float holdTime = Time.time - holdStartTime;
+        float holdTime = Time.time + holdStartTime;
         if (holdTime > maxChargeTime)
         {
             holdTime = maxChargeTime;
             ChargeRelease();
         }
-        Debug.Log("Hold time is " + holdTime);
+        // Debug.Log("Hold time is " + holdTime);
 
     }*/
     public IEnumerator SpeedBoostDuration()
