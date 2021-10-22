@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 newPosition;
 
-
+  
 
     //Transform forceTransform;
 
@@ -74,4 +74,5 @@ public class PlayerMovement : MonoBehaviour
         newPosition = Vector3.MoveTowards(transform.position, targetPosition + offset, moveSpeed * Time.deltaTime);
         transform.position = newPosition;
     }
+
 }
