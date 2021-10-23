@@ -12,17 +12,20 @@ public class PlayerLauncher : MonoBehaviour
     public float currentSpeedBoost;
     public float maxSpeedBoost = 50;
     public float speedMultiplier = 0.5f;//(for the speed boost).
+    public float addTheSpeed;
     public float maxSpeed = 150;//(player's speed plus the speed boost).
 
-    private float speedReset;//Time to wait to reset the move speed;
+    private float speedReset = 1.0f;//Time to wait to reset the move speed;
 
     public PlayerMovement playerMovement;
+    public bool playerReachedTarget;
+    private Vector3 roomForError = Vector3.one * 10;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         currentSpeedBoost = 0;
-        speedReset = 1.0f;
+        //speedReset = 1.0f;
 
     }
 
@@ -45,11 +48,11 @@ public class PlayerLauncher : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             currentSpeedBoost += Time.deltaTime * speedMultiplier;//value keeps increasing;
-            playerMovement.moveSpeed += currentSpeedBoost * Time.deltaTime * Time.deltaTime * speedMultiplier;//Player speed was increasing way faster than
+            playerMovement.moveSpeed += currentSpeedBoost * Time.deltaTime * addTheSpeed;//Player speed was increasing way faster than
             //the speed boost, because of += I guess. When I added another Time.DeltaTime on the line above that slowed it down. Try to multiply it by 
             //different floats and see what happens...
 
-            Debug.Log("Total speed is " + playerMovement.moveSpeed);
+            //Debug.Log("Total speed is " + playerMovement.moveSpeed);
 
             if (currentSpeedBoost > maxSpeedBoost)
             {
@@ -86,19 +89,19 @@ public class PlayerLauncher : MonoBehaviour
 
 
         }
-        bool playerReachedTarget;
-        if (transform.position == playerMovement.newPosition)
+       
+        /*if (transform.position +- roomForError == playerMovement.targetPosition +- roomForError)
         {
             playerReachedTarget = true;
             if (playerReachedTarget)
             {
                 //playerMovement.moveSpeed -= currentSpeedBoost;
-                
+                Debug.Log("reached the target" + playerReachedTarget);
                 //Debug.Log("Final Speed is " + playerMovement.moveSpeed);
                
             }
            
-        }
+        }*/
     }
     /*public void MaxChargeTime()//The code is correct, it's just being overruled because ChargeRelease(); is constantly called.
     {
@@ -111,10 +114,11 @@ public class PlayerLauncher : MonoBehaviour
         Debug.Log("Hold time is " + holdTime);
 
     }*/
-    public IEnumerator SpeedBoostDuration()
+     public IEnumerator SpeedBoostDuration()
     {
         if (Input.GetMouseButtonUp(0))
         {
+            //yield return new WaitUntil(() => playerReachedTarget == true);
             yield return new WaitForSeconds(speedReset);
             currentSpeedBoost = 0;
             playerMovement.moveSpeed = 30;
