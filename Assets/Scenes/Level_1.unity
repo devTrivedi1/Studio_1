@@ -1014,9 +1014,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSpeedBoost: 0
   maxSpeedBoost: 50
-  speedMultiplier: 30
+  speedMultiplier: 70
+  addTheSpeed: 6.5
   maxSpeed: 130
   playerMovement: {fileID: 1293742938}
+  playerReachedTarget: 0
 --- !u!54 &1293742937
 Rigidbody:
   m_ObjectHideFlags: 0
