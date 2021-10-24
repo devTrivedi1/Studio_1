@@ -82,12 +82,10 @@ public class PlayerLauncher : MonoBehaviour
 
     private void ChargeRelease()//player only moves when you release left click.
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
         {
             playerMovement.SetTargetPosition();
             playerMovement.Move();
-
-
         }
        
         /*if (transform.position +- roomForError == playerMovement.targetPosition +- roomForError)
