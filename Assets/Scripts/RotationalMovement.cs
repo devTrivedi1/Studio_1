@@ -4,33 +4,52 @@ using UnityEngine;
 
 public class RotationalMovement : MonoBehaviour
 {
-    private float angleY = 1.0f;
-    private float speedY = 1.5f;
-    private float angleX = 2f;
-    public float speedX = 3f;
-   
-    public Vector3 TurningPlayer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	// step 1 : find where the mouse is
+	// step 1.1 get the mouse ps in the real world 
 
-    }
+	// step 2 : calculate the relative direction from player to mouse
+	//step 3 look in this directrion 
+	private float angleY = 1.0f;
+	private float speedY = 1.5f;
+	private float angleX = 2f;
+	public float speedX = 3f;
+	public Vector3 mousePositionInWorldSpace;
+	public Camera camera;
 
-    // Update is called once per frame
-    void Update()
-    {
-        PlayerRotation();
-      
-    }
+	public Vector3 TurningPlayer;
 
-    private void PlayerRotation()
-    {
-        angleY += speedY * Input.GetAxis("Mouse Y");
-        angleX += speedX * Input.GetAxis("Mouse X");
-       
-        TurningPlayer = transform.InverseTransformDirection(TurningPlayer);
-        TurningPlayer = transform.eulerAngles = new Vector3(0, angleX + angleY, 0);
-    }
-    
+	// Start is called before the first frame update
+	void Start()
+	{
+
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		HandleInputs();
+		PlayerRotation();
+
+	}
+
+	private void HandleInputs()
+	{
+		mousePositionInWorldSpace = Input.mousePosition;
+		var ray = camera.ScreenPointToRay(mousePositionInWorldSpace);
+		RaycastHit hit;
+		if (Physics.Raycast(ray, out hit))
+		{
+			mousePositionInWorldSpace = hit.point;
+			Debug.Log(hit.transform);
+		}
+	}
+
+	private void PlayerRotation()
+	{
+		var direction = this.mousePositionInWorldSpace - transform.position;
+		direction.y = 0;
+		transform.forward = direction;
+	}
+
 }
