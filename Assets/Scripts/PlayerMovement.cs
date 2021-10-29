@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 offset;
 
     public Vector3 newPosition; 
+    public LayerMask layerMask;
 
   
 
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 1000))
+        if (Physics.Raycast(ray, out hit, 1000, layerMask))
         {
             targetPosition = hit.point;
             Debug.Log("target pos is " + targetPosition);
