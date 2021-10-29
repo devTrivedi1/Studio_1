@@ -7,6 +7,7 @@ public class Guard : MonoBehaviour
 	public Transform pathHolder;
     public float speed = 4f;
     public float waitTime = .3f;
+    public float turnSpeed = 90;
 
 
 	void Start()
@@ -25,6 +26,7 @@ public class Guard : MonoBehaviour
         transform.position = waypoints[0];
         int targetWaypointIndex = 1;
         Vector3 targetWaypoint = waypoints[targetWaypointIndex];
+        transform.LookAt(targetWaypoint);
         while (true)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
@@ -34,7 +36,22 @@ public class Guard : MonoBehaviour
                 //when targetWaypointIndex is equal to waypoints.Length, it goes back to zero
                 targetWaypoint = waypoints [targetWaypointIndex];
                 yield return new WaitForSeconds(waitTime);
+                yield return StartCoroutine(TurnToFace(targetWaypoint));
             }
+            yield return null;
+        }
+    }
+
+    IEnumerator TurnToFace(Vector3 lookTarget)
+    {
+        Vector3 directionToLookTarget = (lookTarget - transform.position).normalized;
+        float targetAngle = 90-Mathf.Atan2(directionToLookTarget.z, directionToLookTarget.x)* Mathf.Rad2Deg;
+
+        while(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle) > 0.05f)
+        {
+            float angle = Mathf.MoveTowardsAngle (transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
+            transform.eulerAngles = Vector3.up * angle;
+
             yield return null;
         }
     }

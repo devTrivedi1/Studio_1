@@ -10,13 +10,8 @@ public class RotationalMovement : MonoBehaviour
 
 	// step 2 : calculate the relative direction from player to mouse
 	//step 3 look in this directrion 
-	private float angleY = 1.0f;
-	private float speedY = 1.5f;
-	private float angleX = 2f;
-	public float speedX = 3f;
 	public Vector3 mousePositionInWorldSpace;
 	public Camera camera;
-
 	public Vector3 TurningPlayer;
 
 	// Start is called before the first frame update
