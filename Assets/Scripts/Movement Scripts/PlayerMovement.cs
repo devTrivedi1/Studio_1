@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 newPosition; 
     public LayerMask layerMask;
 
-  
+    
 
     //Transform forceTransform;
 
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 1000, layerMask))
         {
             targetPosition = hit.point;
-            Debug.Log("target pos is " + targetPosition);
+            //Debug.Log("target pos is " + targetPosition);
             //this.transform.LookAt(targetPosition);
             lookAtTarget = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y,
                 targetPosition.z - transform.position.z);

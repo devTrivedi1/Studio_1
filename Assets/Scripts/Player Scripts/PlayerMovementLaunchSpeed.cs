@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovementLaunchSpeed : MonoBehaviour
 {
 	Rigidbody rb;
-	float launchSpeed = 50f;
+	//float launchSpeed = 50f;
 
     private float boostCoolDown = 2f;
 	private float boostDuration = 3f;

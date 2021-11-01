@@ -13,11 +13,12 @@ public class RotationalMovement : MonoBehaviour
 	public Vector3 mousePositionInWorldSpace;
 	public Camera camera;
 	public Vector3 TurningPlayer;
+	
 
 	// Start is called before the first frame update
 	void Start()
 	{
-
+	
 	}
 
 	// Update is called once per frame
@@ -36,15 +37,16 @@ public class RotationalMovement : MonoBehaviour
 		if (Physics.Raycast(ray, out hit))
 		{
 			mousePositionInWorldSpace = hit.point;
-			Debug.Log(hit.transform);
+			//Debug.Log(hit.transform);
 		}
 	}
 
 	private void PlayerRotation()
 	{
-		var direction = this.mousePositionInWorldSpace - transform.position;
+	    Vector3 direction = this.mousePositionInWorldSpace - transform.position;
 		direction.y = 0;
 		transform.forward = direction;
+
 	}
 
 }
