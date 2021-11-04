@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 lookAtTarget;
     public bool playerClicked; 
     Quaternion playerRot; 
-    public int rotSpeed;
+    private int rotSpeed;
     public float moveSpeed;  
     private Vector3 offset = new Vector3(0, 1.5f, 0);
 
@@ -21,13 +21,14 @@ public class PlayerMovement : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         if (Input.GetMouseButtonUp(0))
         {
             playerClicked = true;

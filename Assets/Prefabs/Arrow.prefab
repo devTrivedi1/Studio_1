@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 20
+  outOfBounds: 305
 --- !u!65 &6578420683175588307
 BoxCollider:
   m_ObjectHideFlags: 0

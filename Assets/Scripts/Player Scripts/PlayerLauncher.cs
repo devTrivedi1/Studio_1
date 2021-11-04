@@ -26,6 +26,7 @@ public class PlayerLauncher : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         currentSpeedBoost = 0;
         //speedReset = 1.0f;
+       
 
     }
 
