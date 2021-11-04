@@ -8,12 +8,12 @@ public class LongRange : MonoBehaviour
     private int startSpawn;
     private int spawnDelay;
 
-    public float firePower;
+    private float firePower = 50f;
    
 
     private Vector3 offset;
 
-    public float detectionRange;
+    private float detectionRange = 20f;
     public float distanceToPlayer;
     public Transform thePlayer;
     public bool enemyInRange;

@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Quaternion playerRot; 
     public int rotSpeed;
     public float moveSpeed;  
-    public Vector3 offset;
+    private Vector3 offset = new Vector3(0, 1.5f, 0);
 
     public Vector3 newPosition; 
     public LayerMask layerMask;
