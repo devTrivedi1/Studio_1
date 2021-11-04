@@ -6,6 +6,9 @@ public class ArrowMove : MonoBehaviour
 {
     public int Speed;
     private Rigidbody rb;
+
+    public float outOfBounds;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +19,7 @@ public class ArrowMove : MonoBehaviour
     void Update()
     {
         Fire();
+        ArrowOutOfBounds();
     }
     public void Fire()
     {
@@ -23,5 +27,12 @@ public class ArrowMove : MonoBehaviour
         Vector3 firePower = transform.forward * Speed;
         rb.velocity = firePower;
 
+    }
+    public void ArrowOutOfBounds()
+    {
+        if (transform.position.x >= outOfBounds || transform.position.z >= outOfBounds)
+        {
+            Destroy(gameObject);
+        }
     }
 }
