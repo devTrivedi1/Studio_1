@@ -12,7 +12,7 @@ public class RotationalMovement : MonoBehaviour
 	//step 3 look in this directrion 
 	public Vector3 mousePositionInWorldSpace;
 	public Camera camera;
-	public Vector3 TurningPlayer;
+
 	
 
 	// Start is called before the first frame update

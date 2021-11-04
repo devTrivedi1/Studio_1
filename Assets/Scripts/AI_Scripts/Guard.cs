@@ -64,6 +64,7 @@ public class Guard : MonoBehaviour
 				yield return StartCoroutine(TurnToFace(targetWaypoint));
 			}
 			yield return null;
+			
 		}
 	}
 
