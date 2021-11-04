@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLunge : MonoBehaviour
 {
-    public float lungeHeight;
+    private float lungeHeight = 15;
     Rigidbody rb;
     public bool shouldLunge;
     public bool isGrounded;

@@ -11,8 +11,8 @@ public class PlayerLauncher : MonoBehaviour
 
     public float currentSpeedBoost;
     public float maxSpeedBoost = 50;
-    public float speedMultiplier = 0.5f;//(for the speed boost).
-    public float addTheSpeed;
+    private float speedMultiplier = 70f;//(for the speed boost).
+    private float addTheSpeed = 6.5f;
     public float maxSpeed = 150;//(player's speed plus the speed boost).
 
     private float speedReset = 1.0f;//Time to wait to reset the move speed;
@@ -26,6 +26,7 @@ public class PlayerLauncher : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         currentSpeedBoost = 0;
         //speedReset = 1.0f;
+       
 
     }
 

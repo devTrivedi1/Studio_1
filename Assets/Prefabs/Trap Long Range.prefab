@@ -109,8 +109,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 8330955171146639942, guid: bb14bbcf719babc48a2140cbf4973933, type: 3}
+  spawnDelay: 0
   firePower: 50
   detectionRange: 20
   distanceToPlayer: 0
-  thePlayer: {fileID: 0}
+  thePlayer: {fileID: 336476995092473277, guid: dd499c0643324ef49a8b1f957b57b1f9, type: 3}
   enemyInRange: 0
+  timer: 0
