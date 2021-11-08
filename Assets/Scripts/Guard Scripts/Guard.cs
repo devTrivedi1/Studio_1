@@ -39,6 +39,7 @@ public class Guard : MonoBehaviour
         if(CanSeePlayer())
         {
             spotLight.color = Color.red;
+			
         }
         else
         {
@@ -103,13 +104,13 @@ public class Guard : MonoBehaviour
 
     bool CanSeePlayer()
     {
-        if(Vector3.Distance(transform.position, player.position) < viewDistance)
+        if(Vector3.Distance(transform.position, this.player.position) < viewDistance)
         {
-            Vector3 dirToPlayer = (player.position - transform.position).normalized;
+            Vector3 dirToPlayer = (this.player.position - transform.position).normalized;
             float angleBetweenGuardAndPlayer = Vector3.Angle (transform.forward, dirToPlayer);
             if(angleBetweenGuardAndPlayer < viewAngle /2f)
             {
-                if(!Physics.Linecast(transform.position, player.position, viewMask))
+                if(!Physics.Linecast(transform.position, this.player.position, viewMask))
                 {
                     return true; 
                 }
