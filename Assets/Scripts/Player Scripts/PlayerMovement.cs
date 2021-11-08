@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {
         
     }
 
@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
             lookAtTarget = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y,
                 targetPosition.z - transform.position.z);
             playerRot = Quaternion.LookRotation(lookAtTarget);
+           
 
         }
     }
