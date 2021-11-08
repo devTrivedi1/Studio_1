@@ -4,76 +4,134 @@ using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+    public Rigidbody rb;
+    public float dashForce;
+    public float startDashTimer;
     public float dashSpeed;
-    public float doubleTapTime;
+    private float curretDashTimer;
+    private float dashDirection;
 
-    KeyCode lastKeyCode;
-    private float dashCount;
-    public float startDashCount;
-    private int side;
+    public bool isDashing;
+    private Vector3 DashTo;
+    private Vector3 offset = new Vector3(0, 1.5f, 0);
+
+    private float dashCoolDown;
+    public float dashCoolDownReset;
     // Start is called before the first frame update
     void Start()
     {
-        dashCount = startDashCount;
+        rb = GetComponent<Rigidbody>();
+        dashCoolDown = dashCoolDownReset;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        dashDirection = Input.GetAxis("Horizontal");
+        //Dash();
+        DashCoolDown();
+    }
+    private void FixedUpdate()
+    {
+        Dash();
     }
     public void Dash()
     {
-        if(side == 0)
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            Vector3 left = new Vector3(-dashForce, 0, 0);
+            isDashing = true;
+            curretDashTimer = startDashTimer;
+            rb.velocity = Vector3.zero;
+            
+            if (isDashing)
             {
-                if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
+                DashTo = Vector3.MoveTowards(transform.position, transform.InverseTransformDirection(left + offset), dashSpeed * Time.deltaTime);
+                transform.position = DashTo;
+                curretDashTimer -= Time.deltaTime;
+                Debug.Log("current dash t is " + curretDashTimer);
+               
+            }
+            if (curretDashTimer == 0)
+            {
+                isDashing = false;
+            }
+
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Vector3 right = new Vector3(dashForce, 0, 0);
+            isDashing = true;
+            curretDashTimer = startDashTimer;
+            rb.velocity = Vector3.zero;
+
+            if (isDashing)
+            {
+                DashTo = Vector3.MoveTowards(transform.position, transform.InverseTransformDirection(right + offset), dashSpeed * Time.deltaTime);
+                transform.position = DashTo;
+                curretDashTimer -= Time.deltaTime;
+                if (curretDashTimer == 0)
                 {
-                    side = 1;
+                    isDashing = false;
                 }
-                else
+            }
+
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Vector3 forwards = new Vector3(0, 0, dashForce);
+            isDashing = true;
+            curretDashTimer = startDashTimer;
+            rb.velocity = Vector3.zero;
+
+            if (isDashing)
+            {
+                DashTo = Vector3.MoveTowards(transform.position, transform.InverseTransformDirection(forwards + offset), dashSpeed * Time.deltaTime);
+                transform.position = DashTo;
+                curretDashTimer -= Time.deltaTime;
+                if (curretDashTimer == 0)
                 {
-                    doubleTapTime = Time.time;
+                    isDashing = false;
                 }
-                lastKeyCode = KeyCode.A;
             }
+
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
+            Vector3 backwards = new Vector3(0, 0, -dashForce);
+            isDashing = true;
+            curretDashTimer = startDashTimer;
+            rb.velocity = Vector3.zero;
+
+            if (isDashing)
             {
-                side = 2;
+                DashTo = Vector3.MoveTowards(transform.position, transform.InverseTransformDirection(backwards + offset), dashSpeed * Time.deltaTime);
+                transform.position = DashTo;
+                curretDashTimer -= Time.deltaTime;
+                if (curretDashTimer == 0)
+                {
+                    isDashing = false;
+                }
             }
-            else
-            {
-                doubleTapTime = Time.time;
-            }
-            lastKeyCode = KeyCode.D;
+
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+    }
+    public void DashCoolDown()
+    {
+        if (isDashing == false)
         {
-            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.W)
+            dashCoolDown -= Time.deltaTime;
+            if(dashCoolDown > 0)
             {
-                side = 3;
+                isDashing = false;
+                Debug.Log("cooldown time is " + dashCoolDown);
             }
-            else
+            if(dashCoolDown == 0)
             {
-                doubleTapTime = Time.time;
+                dashCoolDown = dashCoolDownReset;
+                Debug.Log("cooldown time is " + dashCoolDown);
             }
-            lastKeyCode = KeyCode.W;
         }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.S)
-            {
-                side = 4;
-            }
-            else
-            {
-                doubleTapTime = Time.time;
-            }
-            lastKeyCode = KeyCode.S;
-        }
+
     }
 }

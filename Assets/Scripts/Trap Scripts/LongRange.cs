@@ -32,7 +32,7 @@ public class LongRange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnDelay = 2;
+        spawnDelay = 1;
         DetectPlayer();
         
         timer += Time.deltaTime;
