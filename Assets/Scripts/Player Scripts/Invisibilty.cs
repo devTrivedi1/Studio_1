@@ -8,7 +8,7 @@ public class Invisibilty : MonoBehaviour
     private Material mat;//material of the player.
     private float alphaVal;//The level of transparency or 'invisibilty' we want for the player.
 
-    public float timer;
+    public float timer = 2f;
     private float currentTimer;
 
     public bool isInvisible;
