@@ -53,6 +53,7 @@ public class FloorTrapWork : MonoBehaviour
             float ratio = currentLerpTimeUp / lerpTimeUp;
             theSpikes.transform.position = Vector3.Lerp(startPos, startPos + endPos, ratio);
         }
+
        
     }
     private void OnCollisionExit(Collision collision)

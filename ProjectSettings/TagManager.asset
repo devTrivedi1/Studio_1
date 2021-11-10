@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - EnemyArrow
+  - Trap Spikes
+  - Invisible
   - NextLevelDoor
   layers:
   - Default
