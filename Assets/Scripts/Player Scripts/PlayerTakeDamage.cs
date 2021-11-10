@@ -28,5 +28,14 @@ public class PlayerTakeDamage : MonoBehaviour
             }
             Debug.Log("Your health is now " + health);
         }
+        if(collision.gameObject.tag == "Trap Spikes")
+        {
+            health -= 5;
+            if(health <= 0)
+            {
+                Destroy(gameObject);
+            }
+            Debug.Log("You hit a spike!");
+        }
     }
 }
