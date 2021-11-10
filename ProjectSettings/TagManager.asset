@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - EnemyArrow
+  - NextLevelDoor
   layers:
   - Default
   - TransparentFX

@@ -17,6 +17,9 @@ public class Guard : MonoBehaviour
 	Color originalSpotLightColor;
 
 	Transform player;
+	private GameObject playerSpotted;
+	private Rigidbody guardRB;
+	private float guardSpeed = 5f;
 
 	void Start()
 	{
@@ -24,6 +27,9 @@ public class Guard : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         originalSpotLightColor = spotLight.color;
 		viewAngle = spotLight.spotAngle;
+		
+		guardRB = GetComponent<Rigidbody>();
+		playerSpotted = GameObject.FindGameObjectWithTag("Player");
 
 		Vector3[] wayPoints = new Vector3[pathHolder.childCount];
 		for (int i = 0; i < wayPoints.Length; i++)
@@ -38,14 +44,14 @@ public class Guard : MonoBehaviour
     {
         if(CanSeePlayer())
         {
-            spotLight.color = Color.red;
-			
+            spotLight.color = Color.red;		
         }
         else
         {
             spotLight.color = originalSpotLightColor;
         }
     }
+
 
 	IEnumerator FollowPath(Vector3[] waypoints)
 	{
@@ -102,6 +108,12 @@ public class Guard : MonoBehaviour
 		Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
 	}
 
+	void SpotPlayer()
+	{
+		Vector3 lookDirection = (playerSpotted.transform.position - transform.position).normalized;
+		guardRB.AddForce(lookDirection * guardSpeed);
+	}
+
     bool CanSeePlayer()
     {
         if(Vector3.Distance(transform.position, this.player.position) < viewDistance)
@@ -112,6 +124,7 @@ public class Guard : MonoBehaviour
             {
                 if(!Physics.Linecast(transform.position, this.player.position, viewMask))
                 {
+					SpotPlayer();
                     return true; 
                 }
             }
