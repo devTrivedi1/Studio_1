@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d88017b4ea7f74d9487cce3ec89a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followPlayer: {fileID: 1564904829}
+  followPlayer: {fileID: 0}
 --- !u!81 &659073833
 AudioListener:
   m_ObjectHideFlags: 0

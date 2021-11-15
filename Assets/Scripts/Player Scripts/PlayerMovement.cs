@@ -15,14 +15,14 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 newPosition; 
     public LayerMask layerMask;
 
-    
+    private Rigidbody rb;
 
     //Transform forceTransform;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerClicked)
         {
             Move();
+            ReleaseDamage();
         }
 
     }
@@ -68,6 +69,10 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, playerRot, moveSpeed * Time.deltaTime);
         newPosition = Vector3.MoveTowards(transform.position, targetPosition + offset, moveSpeed * Time.deltaTime);
         transform.position = newPosition;
+    }
+    public void ReleaseDamage()
+    {
+        rb.AddExplosionForce(10, new Vector3(10, 10, 10), 10, 1, ForceMode.Impulse);
     }
 
 }

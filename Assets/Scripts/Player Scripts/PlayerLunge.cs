@@ -48,7 +48,7 @@ public class PlayerLunge : MonoBehaviour
         if (shouldLunge && isGrounded)
         {
 
-            rb.AddForce(transform.InverseTransformDirection(lungePower), ForceMode.Impulse);
+            rb.AddForce(transform.TransformDirection(lungePower), ForceMode.Impulse);
 
             //Debug.Log("you lunged");
             //Debug.Log("your velocity is" + transform.position.y);
