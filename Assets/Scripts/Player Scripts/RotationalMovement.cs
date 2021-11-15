@@ -12,6 +12,7 @@ public class RotationalMovement : MonoBehaviour
 	//step 3 look in this directrion 
 	public Vector3 mousePositionInWorldSpace;
 	public Camera camera;
+	public LayerMask mask;
 
 	
 
@@ -34,7 +35,7 @@ public class RotationalMovement : MonoBehaviour
 		mousePositionInWorldSpace = Input.mousePosition;
 		var ray = camera.ScreenPointToRay(mousePositionInWorldSpace);
 		RaycastHit hit;
-		if (Physics.Raycast(ray, out hit))
+		if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
 		{
 			mousePositionInWorldSpace = hit.point;
 			//Debug.Log(hit.transform);

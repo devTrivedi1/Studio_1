@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 336476995092473270}
   - component: {fileID: 336476995092473264}
   - component: {fileID: 8890320826867137992}
+  - component: {fileID: 589281089}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -218,8 +219,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336476995092473163}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30, y: 1.94, z: -40}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -32.07, y: 1.94, z: 54.9}
   m_LocalScale: {x: 2.9209, y: 2.9209, z: 2.9209}
   m_Children:
   - {fileID: 336476995348303748}
@@ -372,6 +373,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePositionInWorldSpace: {x: 0, y: 0, z: 0}
   camera: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 192
 --- !u!114 &336476995092473264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +403,24 @@ MonoBehaviour:
   currentGameObject: {fileID: 6426526781140431447, guid: 1c033cb646011814d9d0df5fedddb978, type: 3}
   timer: 2
   isInvisible: 0
+--- !u!114 &589281089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336476995092473163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c0567127b8e9534e9baaec1b840ab66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 336476995092473265}
+  dashForce: 0
+  dashSpeed: 0
+  dashTimer: 0
+  isDashing: 0
+  dashCoolDownReset: 3
 --- !u!1 &336476995348303771
 GameObject:
   m_ObjectHideFlags: 0

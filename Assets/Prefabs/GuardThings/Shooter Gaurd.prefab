@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8661287133654615961}
   - component: {fileID: 8661287133654615942}
   - component: {fileID: 8661287133654615943}
-  - component: {fileID: 8661287133654615940}
   - component: {fileID: 8661287133654615965}
   - component: {fileID: 8661287133654615963}
   - component: {fileID: 2421886378715916373}
@@ -101,26 +100,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8661287133654615940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8661287133654615941}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95883801bb47b8b44a670226a586849e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thePlayer: {fileID: 0}
-  projectileSpeed: 20
-  detectionRange: 40
-  distanceToPlayer: 0
-  isInRange: 0
-  guardProjectile: {fileID: 0}
-  timer: 0
-  spawnDelay: 1
 --- !u!54 &8661287133654615965
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -153,7 +132,6 @@ MonoBehaviour:
   spawnDelay: 1
   shootingRange: 40
   distanceToPlayer: 0
-  thePlayer: {fileID: 0}
   inShootingRange: 0
   timer: 0
   projectileMoveSpeed: 100
