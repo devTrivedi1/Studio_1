@@ -6,23 +6,33 @@ public class PlayerDash : MonoBehaviour
 {
     public Rigidbody rb;
     public float dashForce;
-    public float startDashTimer;
+   
     public float dashSpeed;
     private float curretDashTimer;
+    public float dashTimer;
     //private float dashDirection;
 
     public bool isDashing;
-    private Vector3 DashTo;
-    private Vector3 offset = new Vector3(0, 1.5f, 0);
+   
+   
 
     private float dashCoolDown;
     public float dashCoolDownReset;
+
+    private PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         dashCoolDown = dashCoolDownReset;
+        curretDashTimer = dashTimer;
+
+        dashForce = 2;
+        dashSpeed = 20;
+       
+        dashTimer = 0.25f;
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -30,7 +40,8 @@ public class PlayerDash : MonoBehaviour
     {
         //dashDirection = Input.GetAxis("Horizontal");
         Dash();
-        DashCoolDown();
+        DashReset();
+        MaintainDash();
     }
     private void FixedUpdate()
     {
@@ -43,7 +54,7 @@ public class PlayerDash : MonoBehaviour
             //Debug.Log("pressed A");
             Vector3 left = new Vector3(-dashForce, 0, 0);
             isDashing = true;
-            curretDashTimer = startDashTimer;
+          
             rb.velocity = Vector3.zero;
 
 
@@ -51,15 +62,12 @@ public class PlayerDash : MonoBehaviour
             {
                 
                 //Debug.Log("direction gotten");
-                transform.position += transform.TransformDirection(left * dashSpeed);
+                transform.position += transform.TransformDirection (left * dashSpeed);
 
-                curretDashTimer -= Time.deltaTime;
+                
 
                 //Debug.Log("current dash t is " + curretDashTimer);
-                if (curretDashTimer == 0)
-                {
-                    isDashing = false;
-                }
+                
 
             }
 
@@ -69,7 +77,7 @@ public class PlayerDash : MonoBehaviour
         {
             Vector3 right = new Vector3(dashForce, 0, 0);
             isDashing = true;
-            curretDashTimer = startDashTimer;
+            
             rb.velocity = Vector3.zero;
 
             if (isDashing)
@@ -78,12 +86,9 @@ public class PlayerDash : MonoBehaviour
                 //Debug.Log("direction gotten");
                 transform.position += transform.TransformDirection(right * dashSpeed);
 
-                curretDashTimer -= Time.deltaTime;
+               
 
-                if (curretDashTimer == 0)
-                {
-                    isDashing = false;
-                }
+               
             }
 
         }
@@ -91,7 +96,7 @@ public class PlayerDash : MonoBehaviour
         {
             Vector3 forwards = new Vector3(0, 0, dashForce);
             isDashing = true;
-            curretDashTimer = startDashTimer;
+            
             rb.velocity = Vector3.zero;
 
             if (isDashing)
@@ -100,20 +105,17 @@ public class PlayerDash : MonoBehaviour
                 //Debug.Log("direction gotten");
                 transform.position += transform.TransformDirection(forwards * dashSpeed);
 
-                curretDashTimer -= Time.deltaTime;
+                
 
-                if (curretDashTimer == 0)
-                {
-                    isDashing = false;
-                }
+               
             }
-
+            
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             Vector3 backwards = new Vector3(0, 0, -dashForce);
             isDashing = true;
-            curretDashTimer = startDashTimer;
+           
             rb.velocity = Vector3.zero;
 
             if (isDashing)
@@ -122,32 +124,45 @@ public class PlayerDash : MonoBehaviour
                 //Debug.Log("direction gotten");
                 transform.position += transform.TransformDirection(backwards * dashSpeed);
 
-                curretDashTimer -= Time.deltaTime;
+               
 
-                if (curretDashTimer == 0)
-                {
-                    isDashing = false;
-                }
-
+                
             }
 
         }
+        
+    }
+    public void DashReset()
+    {
+       
+        if (isDashing)
+        {
+            curretDashTimer -= Time.deltaTime;
+            
+        }
+        if(curretDashTimer <= 0)
+        {
+            isDashing = false;
+            curretDashTimer = dashTimer;
+        }
+
     }
     public void DashCoolDown()
     {
-        if (isDashing == false)
+        if(isDashing == false)
         {
-            dashCoolDown -= Time.deltaTime;
-            if (dashCoolDown > 0)
-            {
-                isDashing = false;
-                //Debug.Log("cooldown time is " + dashCoolDown);
-            }
-            if (dashCoolDown <= 0)
-            {
-                dashCoolDown = dashCoolDownReset;
-                Debug.Log("cooldown time is " + dashCoolDown);
-            }
+
+        }
+    }
+    public void MaintainDash()//Before if you dashed after clicking, you WOULD dash, but then proceed to move again to wherever you clicked. This function solves that.
+    {
+        if (isDashing)
+        {
+            playerMovement.enabled = false;
+        }
+        else
+        {
+            playerMovement.enabled = true;
         }
 
     }

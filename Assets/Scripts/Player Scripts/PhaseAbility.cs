@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PhaseAbility : MonoBehaviour
 {
-	private float alphaColor = 0.2f;
+	private float alphaColor = 0.02f;
 	private float alphaTimer = 1f;
 	private float elapsed;
 

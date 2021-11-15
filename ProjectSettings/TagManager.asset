@@ -9,6 +9,8 @@ TagManager:
   - Trap Spikes
   - Invisible
   - NextLevelDoor
+  - Wall
+  - GuardProjectile
   layers:
   - Default
   - TransparentFX

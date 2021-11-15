@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerTakeDamage : MonoBehaviour
 {
     private int health;
+    private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         health = 100;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,12 @@ public class PlayerTakeDamage : MonoBehaviour
                 Destroy(gameObject);
             }
             Debug.Log("You hit a spike!");
+        }
+        if(collision.gameObject.tag == "GuardProjectile")
+        {
+            rb.velocity = Vector3.zero;
+            health -= 5;
+            Debug.Log("your health is " + health);
         }
     }
 }
