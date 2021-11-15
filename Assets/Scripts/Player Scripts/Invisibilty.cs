@@ -41,6 +41,7 @@ public class Invisibilty : MonoBehaviour
 
             //ChangeAlpha(currentGameObject.GetComponent<Renderer>().material, alphaVal);
             currentGameObject.GetComponent<Renderer>().material.color = Color.white;
+            currentGameObject.layer = LayerMask.NameToLayer("Invisible");
 
             other.gameObject.SetActive(false);
 
@@ -76,7 +77,7 @@ public class Invisibilty : MonoBehaviour
                 
                 currentGameObject.GetComponent<Renderer>().material.color = myColour;
                 isInvisible = false;
-                
+                  currentGameObject.layer = LayerMask.NameToLayer("Default");
             }
         }
     }
