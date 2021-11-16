@@ -13,6 +13,7 @@ public class GuardRotation : MonoBehaviour
     public float facingRange;
 
     public float distanceToPlayer;
+    public LayerMask mask;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +36,7 @@ public class GuardRotation : MonoBehaviour
         {
             inFacingRange = false;
         }
-        if (inFacingRange)
+        if (!Physics.Linecast(transform.position, this.thePlayer.transform.position, mask) && inFacingRange)
         {
             Vector3 direction = thePlayer.transform.position - this.transform.position;
             transform.forward = direction;
