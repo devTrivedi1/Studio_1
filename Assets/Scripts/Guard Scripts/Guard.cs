@@ -42,14 +42,7 @@ public class Guard : MonoBehaviour
 
     void Update()
     {
-        if(CanSeePlayer())
-        {
-            spotLight.color = Color.red;		
-        }
-        else
-        {
-            spotLight.color = originalSpotLightColor;
-        }
+	
     }
 
 
@@ -107,28 +100,9 @@ public class Guard : MonoBehaviour
 		Gizmos.color = Color.cyan;
 		Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
 	}
+	
 
-	void SpotPlayer()
-	{
-		Vector3 lookDirection = (playerSpotted.transform.position - transform.position).normalized;
-		guardRB.AddForce(lookDirection * guardSpeed);
-	}
+	
 
-    bool CanSeePlayer()
-    {
-        if(Vector3.Distance(transform.position, this.player.position) < viewDistance)
-        {
-            Vector3 dirToPlayer = (this.player.position - transform.position).normalized;
-            float angleBetweenGuardAndPlayer = Vector3.Angle (transform.forward, dirToPlayer);
-            if(angleBetweenGuardAndPlayer < viewAngle /2f)
-            {
-                if(!Physics.Linecast(transform.position, this.player.position, viewMask))
-                {
-					SpotPlayer();
-                    return true; 
-                }
-            }
-        }
-        return false;  
-    }
+
 }

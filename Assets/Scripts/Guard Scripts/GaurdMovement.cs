@@ -20,6 +20,9 @@ public class GaurdMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         thePlayer = GameObject.FindGameObjectWithTag("Player");
+        moveSpeed = 10;
+        rotSpeed = 20;
+        chasingRange = 30;
     }
 
     // Update is called once per frame

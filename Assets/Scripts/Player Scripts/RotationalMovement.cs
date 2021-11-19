@@ -11,7 +11,7 @@ public class RotationalMovement : MonoBehaviour
 	// step 2 : calculate the relative direction from player to mouse
 	//step 3 look in this directrion 
 	public Vector3 mousePositionInWorldSpace;
-	public Camera camera;
+	private Camera camera;
 	public LayerMask mask;
 
 	
@@ -19,7 +19,7 @@ public class RotationalMovement : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-	
+		camera = Camera.main;
 	}
 
 	// Update is called once per frame

@@ -14,10 +14,16 @@ public class GuardRotation : MonoBehaviour
 
     public float distanceToPlayer;
     public LayerMask mask;
+
+    
     // Start is called before the first frame update
     void Start()
     {
         thePlayer = GameObject.FindGameObjectWithTag("Player");
+        rotSpeed = 20;
+        facingRange = 40;
+
+      
     }
 
     // Update is called once per frame
@@ -41,5 +47,7 @@ public class GuardRotation : MonoBehaviour
             Vector3 direction = thePlayer.transform.position - this.transform.position;
             transform.forward = direction;
         }
+       
     }
+   
 }
