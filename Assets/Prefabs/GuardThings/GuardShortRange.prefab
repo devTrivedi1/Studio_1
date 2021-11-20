@@ -177,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6830796950890670304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.2587795, y: -0.00079528004, z: -8.141552}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.38549015, y: 0.38549015, z: 0.38549015}
   m_Children:
   - {fileID: 6830796951654768206}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 6830796951585006052}
   - component: {fileID: 6830796951585006053}
   m_Layer: 0
-  m_Name: Guard 1
+  m_Name: GuardShortRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -41,7 +41,7 @@ public class PlayerDash : MonoBehaviour
         //dashDirection = Input.GetAxis("Horizontal");
         Dash();
         DashReset();
-        MaintainDash();
+      /*   MaintainDash(); */
     }
     private void FixedUpdate()
     {
@@ -56,21 +56,12 @@ public class PlayerDash : MonoBehaviour
             isDashing = true;
           
             rb.velocity = Vector3.zero;
-
-
             if (isDashing)
             {
-                
                 //Debug.Log("direction gotten");
                 transform.position += transform.TransformDirection (left * dashSpeed);
-
-                
-
                 //Debug.Log("current dash t is " + curretDashTimer);
-                
-
             }
-
 
         }
         else if (Input.GetKeyDown(KeyCode.D))
@@ -147,7 +138,7 @@ public class PlayerDash : MonoBehaviour
         }
 
     }
-    public void DashCoolDown()
+   /*  public void DashCoolDown()
     {
         if(isDashing == false)
         {
@@ -165,5 +156,13 @@ public class PlayerDash : MonoBehaviour
             playerMovement.enabled = true;
         }
 
+    } */
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Wall")
+        {
+            isDashing = false;
+        }
     }
 }

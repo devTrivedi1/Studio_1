@@ -8,20 +8,21 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 lookAtTarget;
     public bool playerClicked; 
     Quaternion playerRot; 
-    private int rotSpeed;
-    public float moveSpeed;  
+    public float moveSpeed = 30f;  
     private Vector3 offset = new Vector3(0, 1.5f, 0);
 
     public Vector3 newPosition; 
     public LayerMask layerMask;
 
     private Rigidbody rb;
+    
 
     //Transform forceTransform;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
     }
 
@@ -59,11 +60,16 @@ public class PlayerMovement : MonoBehaviour
             lookAtTarget = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y,
                 targetPosition.z - transform.position.z);
             playerRot = Quaternion.LookRotation(lookAtTarget);
-           
+           if(hit.collider.tag == "Obstacle")
+           {
+               lookAtTarget = Vector3.zero;
+           }
 
         }
         
     }
+
+    
     public void Move()
     {
         transform.rotation = Quaternion.Slerp(transform.rotation, playerRot, moveSpeed * Time.deltaTime);
@@ -74,5 +80,11 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.AddExplosionForce(10, new Vector3(10, 10, 10), 10, 1, ForceMode.Impulse);
     }
-
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Wall")
+        {
+            newPosition = Vector3.zero;
+        }
+    }
 }
