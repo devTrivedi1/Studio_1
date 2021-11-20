@@ -38,7 +38,6 @@ public class FloorTrapWork : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             touchedThePlate = true;
-            currentLerpTimeUp = 0;
         }
     }
 
@@ -51,7 +50,7 @@ public class FloorTrapWork : MonoBehaviour
             {
                 currentLerpTimeUp = lerpTimeUp;
             }
-            float ratio = currentLerpTimeUp * lerpTimeUp;
+            float ratio = currentLerpTimeUp / lerpTimeUp;
             theSpikes.transform.position = Vector3.Lerp(startPos, startPos + endPos, ratio);
         }
 
@@ -63,7 +62,6 @@ public class FloorTrapWork : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             touchedThePlate = false;
-            currentLerpTimeDown = 0;
         }
     }
 
