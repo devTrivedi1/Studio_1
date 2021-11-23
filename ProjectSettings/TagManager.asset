@@ -11,6 +11,9 @@ TagManager:
   - NextLevelDoor
   - Wall
   - GuardProjectile
+  - Enemy
+  - Path
+  - Obstacle
   layers:
   - Default
   - TransparentFX

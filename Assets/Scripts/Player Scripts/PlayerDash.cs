@@ -8,12 +8,12 @@ public class PlayerDash : MonoBehaviour
     public float dashForce;
    
     public float dashSpeed;
-    private float curretDashTimer;
+    public float curretDashTimer;
     public float dashTimer;
     //private float dashDirection;
 
     public bool isDashing;
-   
+    public bool hasDashed;
    
 
     private float dashCoolDown;
@@ -31,8 +31,11 @@ public class PlayerDash : MonoBehaviour
         dashForce = 2;
         dashSpeed = 20;
        
-        dashTimer = 0.25f;
+        dashTimer = 2f;
         playerMovement = GetComponent<PlayerMovement>();
+
+        isDashing = true;
+       
     }
 
     // Update is called once per frame
@@ -99,7 +102,7 @@ public class PlayerDash : MonoBehaviour
             
             rb.velocity = Vector3.zero;
 
-            if (isDashing)
+            if (isDashing && hasDashed == false)
             {
                
                 //Debug.Log("direction gotten");
@@ -160,9 +163,16 @@ public class PlayerDash : MonoBehaviour
         {
             playerMovement.enabled = false;
         }
-        else
+
+        if (hasDashed && isDashing == false);
+        {
+            GetComponent<PlayerDash>().enabled = false;
+        }
+        
+        if(isDashing == false)
         {
             playerMovement.enabled = true;
+          
         }
 
     }
