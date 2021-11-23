@@ -21,8 +21,8 @@ public class Invisibilty : MonoBehaviour
     {
         currentGameObject = gameObject;
         currentTimer = timer;
-        myColour = new Color(0, 84, 142, 1);
-        
+        myColour = currentGameObject.GetComponent<Renderer>().material.color;
+    
 
     }
 
@@ -72,9 +72,7 @@ public class Invisibilty : MonoBehaviour
         {
             currentTimer -= Time.deltaTime;
             if (currentTimer <= 0)
-            {
-                
-                
+            { 
                 currentGameObject.GetComponent<Renderer>().material.color = myColour;
                 isInvisible = false;
                   currentGameObject.layer = LayerMask.NameToLayer("Default");

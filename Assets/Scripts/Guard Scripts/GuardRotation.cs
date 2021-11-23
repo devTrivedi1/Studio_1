@@ -42,7 +42,7 @@ public class GuardRotation : MonoBehaviour
         {
             inFacingRange = false;
         }
-        if (!Physics.Linecast(transform.position, this.thePlayer.transform.position, mask) && inFacingRange)
+        if (inFacingRange)
         {
             Vector3 direction = thePlayer.transform.position - this.transform.position;
             transform.forward = direction;

@@ -4,75 +4,86 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Vector3 targetPosition; 
-    public Vector3 lookAtTarget;
-    public bool playerClicked; 
-    Quaternion playerRot; 
-    private int rotSpeed;
-    public float moveSpeed;  
-    private Vector3 offset = new Vector3(0, 1.5f, 0);
+	public Vector3 targetPosition;
+	public Vector3 lookAtTarget;
+	public bool playerClicked;
+	Quaternion playerRot;
+	public float moveSpeed;
+	private Vector3 offset = new Vector3(0, 1.5f, 0);
 
-    public Vector3 newPosition; 
-    public LayerMask layerMask;
+	public Vector3 newPosition;
+	public LayerMask layerMask;
 
-    private Rigidbody rb;
-
-    //Transform forceTransform;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-        if (Input.GetMouseButtonUp(0))
-        {
-            playerClicked = true;
-            SetTargetPosition();
-        }
-    }
+	private Rigidbody rb;
 
 
-    private void FixedUpdate()
-    {
-        if (playerClicked)
-        {
-            Move();
-            ReleaseDamage();
-        }
+	//Transform forceTransform;
 
-    }
-    public void SetTargetPosition()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+	// Start is called before the first frame update
+	void Start()
+	{
+		moveSpeed = 150f;
+		rb = GetComponent<Rigidbody>();
+	}
 
-        if (Physics.Raycast(ray, out hit, 1000, layerMask))
-        {
-            targetPosition = hit.point;
-            //Debug.Log("target pos is " + targetPosition);
-            //this.transform.LookAt(targetPosition);
-            lookAtTarget = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y,
-                targetPosition.z - transform.position.z);
-            playerRot = Quaternion.LookRotation(lookAtTarget);
-           
+	// Update is called once per frame
+	void Update()
+	{
 
-        }
-        
-    }
-    public void Move()
-    {
-        transform.rotation = Quaternion.Slerp(transform.rotation, playerRot, moveSpeed * Time.deltaTime);
-        newPosition = Vector3.MoveTowards(transform.position, targetPosition + offset, moveSpeed * Time.deltaTime);
-        transform.position = newPosition;
-    }
-    public void ReleaseDamage()
-    {
-        rb.AddExplosionForce(10, new Vector3(10, 10, 10), 10, 1, ForceMode.Impulse);
-    }
+		if (Input.GetMouseButtonUp(0))
+		{
+			playerClicked = true;
+			SetTargetPosition();
+		}
+	}
 
+
+	private void FixedUpdate()
+	{
+		if (playerClicked)
+		{
+			Move();
+			/* ReleaseDamage(); */
+		}
+
+	}
+	public void SetTargetPosition()
+	{
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+
+		if (Physics.Raycast(ray, out hit, 1000, layerMask))
+		{
+			targetPosition = hit.point;
+			//Debug.Log("target pos is " + targetPosition);
+			//this.transform.LookAt(targetPosition);
+			lookAtTarget = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y,
+				targetPosition.z - transform.position.z) * Time.fixedDeltaTime;
+			playerRot = Quaternion.LookRotation(lookAtTarget);
+
+		}
+
+	}
+
+
+	public void Move()
+	{
+
+		/* rb.velocity = (targetPosition - this.transform.position) * moveSpeed * Time.fixedDeltaTime; */
+		Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, targetPosition.z - transform.position.z);
+		rb.velocity = direction * moveSpeed * Time.deltaTime;
+		if (transform.position == targetPosition)
+		{
+			rb.velocity = Vector3.zero;
+		}
+
+		/* rb.velocity = Vector3.MoveTowards(this.transform.position, targetPosition + offset, moveSpeed * Time.deltaTime); */
+		/* transform.rotation = Quaternion.Slerp(transform.rotation, playerRot, moveSpeed * Time.deltaTime); */
+		//newPosition = Vector3.MoveTowards(transform.position, targetPosition + offset, moveSpeed * Time.deltaTime);
+		//transform.position = newPosition;
+	}
+	public void ReleaseDamage()
+	{
+		rb.AddExplosionForce(10, new Vector3(10, 10, 10), 10, 1, ForceMode.Impulse);
+	}
 }
