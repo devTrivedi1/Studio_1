@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private Rigidbody rb;
 
-
+	public PlayerLauncher thePlayer;
 	//Transform forceTransform;
 
 	// Start is called before the first frame update
@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		moveSpeed = 150f;
 		rb = GetComponent<Rigidbody>();
+
+		thePlayer = GetComponent<PlayerLauncher>();
 	}
 
 	// Update is called once per frame
@@ -71,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
 		/* rb.velocity = (targetPosition - this.transform.position) * moveSpeed * Time.fixedDeltaTime; */
 		Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, targetPosition.z - transform.position.z);
-		rb.velocity = direction * moveSpeed * Time.deltaTime;
+		rb.velocity = direction * thePlayer.currentSpeedBoost;
 		if (transform.position == targetPosition)
 		{
 			rb.velocity = Vector3.zero;

@@ -15,7 +15,7 @@ public class LongRange : MonoBehaviour
 
     public float detectionRange = 20f;
     public float distanceToPlayer;
-    public Transform thePlayer;
+    public GameObject thePlayer;
     public bool enemyInRange;
 
     public float timer;
@@ -24,9 +24,9 @@ public class LongRange : MonoBehaviour
     void Start()
     {
         startSpawn = 1;
-       
         offset = new Vector3(0, -2, 0);
-       
+
+        thePlayer = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
