@@ -92,7 +92,7 @@ public class PlayerDash : MonoBehaviour
             
             rb.velocity = Vector3.zero;
 
-            if (isDashing)
+            if (isDashing && hasDashed == false)
             {
                
                 //Debug.Log("direction gotten");

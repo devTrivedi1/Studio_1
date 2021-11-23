@@ -141,8 +141,8 @@ MonoBehaviour:
   theSpikes: {fileID: 4896045415520395572}
   riseHeight: {x: 0, y: 2, z: 0}
   touchedThePlate: 0
-  lerpTimeUp: 0
-  lerpTimeDown: 0
+  lerpTimeUp: 16.12
+  lerpTimeDown: 3
 --- !u!1001 &5707000314524654693
 PrefabInstance:
   m_ObjectHideFlags: 0
