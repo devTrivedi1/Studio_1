@@ -11,6 +11,10 @@ TagManager:
   - NextLevelDoor
   - Wall
   - GuardProjectile
+  - Enemy
+  - SolidWall
+  - TransparentWall
+  - OutOfBounds
   layers:
   - Default
   - TransparentFX
@@ -21,7 +25,7 @@ TagManager:
   - Ground
   - Obstacle
   - Invisible
-  - 
+  - enemyObstecle
   - 
   - 
   - 

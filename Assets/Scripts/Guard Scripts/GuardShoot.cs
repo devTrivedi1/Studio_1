@@ -18,6 +18,8 @@ public class GuardShoot : MonoBehaviour
 	public float timer;
 
 	public float projectileMoveSpeed;
+
+	public LayerMask layerMask;
 	void Start()
 	{
 		startSpawn = 1;
@@ -26,7 +28,7 @@ public class GuardShoot : MonoBehaviour
 		thePlayer = GameObject.FindGameObjectWithTag("Player");
 	}
 
-	
+
 	void Update()
 	{
 		spawnDelay = 1;
@@ -38,14 +40,16 @@ public class GuardShoot : MonoBehaviour
 	private void DetectPlayer()
 	{
 		distanceToPlayer = Vector3.Distance(thePlayer.transform.position, transform.position);
-		if (distanceToPlayer <= shootingRange)
+		if (!Physics.Linecast(transform.position, thePlayer.transform.position, layerMask) && distanceToPlayer <= shootingRange)
 		{
 			inShootingRange = true;
 			Debug.Log("Player is in range");
 			if (timer >= spawnDelay)
 			{
 				StartFiring();
+
 			}
+
 
 		}
 		else
@@ -53,7 +57,7 @@ public class GuardShoot : MonoBehaviour
 			inShootingRange = false;
 		}
 	}
-    
+
 	public void StartFiring()
 	{
 		timer = 0;

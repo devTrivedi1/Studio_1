@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class ObjectInTheWay : MonoBehaviour
@@ -10,7 +9,7 @@ public class ObjectInTheWay : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-        
+       
 	}
 
 	public void ShowTransparent()

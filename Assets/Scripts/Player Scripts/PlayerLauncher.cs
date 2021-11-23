@@ -120,7 +120,7 @@ public class PlayerLauncher : MonoBehaviour
             //yield return new WaitUntil(() => playerReachedTarget == true);
             yield return new WaitForSeconds(speedReset);
             currentSpeedBoost = 0;
-            playerMovement.moveSpeed = 30;
+            playerMovement.moveSpeed = 150f;
         }
         
     }

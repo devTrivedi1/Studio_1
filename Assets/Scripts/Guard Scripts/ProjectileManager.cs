@@ -13,13 +13,14 @@ public class ProjectileManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Wall")
+        if (collision.transform.tag == "Wall" || collision.transform.tag == "OutOfBounds")
+        {
+            Destroy(this.gameObject, 0.5f);
+        }
+        if(collision.transform.tag == "Player")
         {
             Destroy(this.gameObject);
         }
-        if (collision.transform.tag == "Player")
-        {
-            Destroy(this.gameObject);
-        }
+       
     }
 }
