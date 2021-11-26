@@ -13,7 +13,7 @@ public class ProjectileManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Wall" || collision.transform.tag == "OutOfBounds")
+        if (collision.transform.tag == "Wall" || collision.transform.tag == "OutOfBounds" || collision.transform.tag == "Obstacle")
         {
             Destroy(this.gameObject, 0.5f);
         }

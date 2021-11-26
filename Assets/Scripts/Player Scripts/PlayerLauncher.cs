@@ -11,20 +11,21 @@ public class PlayerLauncher : MonoBehaviour
 
     public float currentSpeedBoost;
     public float maxSpeedBoost = 50;
-    private float speedMultiplier = 70f;//(for the speed boost).
+    private float speedMultiplier = 100f;//(for the speed boost).
     private float addTheSpeed = 6.5f;
     public float maxSpeed = 150;//(player's speed plus the speed boost).
 
     private float speedReset = 1.0f;//Time to wait to reset the move speed;
 
     public PlayerMovement playerMovement;
-    public bool playerReachedTarget;
+    private bool playerReachedTarget;
     private Vector3 roomForError = Vector3.one * 10;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        currentSpeedBoost = 0;
+        currentSpeedBoost = 40f;
         //speedReset = 1.0f;
        
 
@@ -40,8 +41,7 @@ public class PlayerLauncher : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        ChargeRelease();
-        
+       /*ChargeRelease();*/
     }
 
     private void WhileCharging()
@@ -81,7 +81,7 @@ public class PlayerLauncher : MonoBehaviour
 
     }*/
 
-    private void ChargeRelease()//player only moves when you release left click.
+/*     private void ChargeRelease()//player only moves when you release left click.
     {
         if (Input.GetMouseButtonUp(0))
         {
@@ -89,19 +89,19 @@ public class PlayerLauncher : MonoBehaviour
             playerMovement.Move();
         }
        
-        /*if (transform.position +- roomForError == playerMovement.targetPosition +- roomForError)
+        if (transform.position +- roomForError == playerMovement.targetPosition +- roomForError)
         {
             playerReachedTarget = true;
             if (playerReachedTarget)
             {
                 //playerMovement.moveSpeed -= currentSpeedBoost;
                 Debug.Log("reached the target" + playerReachedTarget);
-                //Debug.Log("Final Speed is " + playerMovement.moveSpeed);
-               
+                //Debug.Log("Final Speed is " + playerMovement.moveSpeed); 
             }
            
-        }*/
-    }
+        }
+    } */
+    
     /*public void MaxChargeTime()//The code is correct, it's just being overruled because ChargeRelease(); is constantly called.
     {
         float holdTime = Time.time + holdStartTime;

@@ -147,12 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 395520425}
   - component: {fileID: 395520424}
   m_Layer: 3
-  m_Name: Slider
+  m_Name: Health_Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +697,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 2
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!114 &336476995092473268
 MonoBehaviour:
@@ -719,6 +719,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  thePlayer: {fileID: 0}
 --- !u!114 &336476995092473271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,7 +727,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336476995092473163}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 286c6ecdb7cbb6743a1c147154eecde5, type: 3}
   m_Name: 
@@ -735,7 +736,6 @@ MonoBehaviour:
   maxSpeedBoost: 50
   maxSpeed: 250.3
   playerMovement: {fileID: 336476995092473268}
-  playerReachedTarget: 0
 --- !u!114 &589281089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336476995092473163}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c0567127b8e9534e9baaec1b840ab66, type: 3}
   m_Name: 
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336476995092473163}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c20b72173f88b7541b3269d08dee2d38, type: 3}
   m_Name: 
@@ -792,7 +792,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336476995092473163}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8886b109374f9ef4b9c7538ad4dd2be4, type: 3}
   m_Name: 
@@ -806,13 +806,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336476995092473163}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5afabe8196a615846a1113a6c00bd475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentGameObject: {fileID: 6426526781140431447, guid: 1c033cb646011814d9d0df5fedddb978, type: 3}
-  timer: 2
+  timer: 5
   isInvisible: 0
 --- !u!114 &2081871950
 MonoBehaviour:
@@ -821,7 +821,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336476995092473163}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cfbd50c5a9e07a4893dfb138d07ccd2, type: 3}
   m_Name: 

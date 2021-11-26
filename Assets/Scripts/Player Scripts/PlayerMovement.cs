@@ -22,16 +22,15 @@ public class PlayerMovement : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		moveSpeed = 150f;
+		moveSpeed = 30f;
 		rb = GetComponent<Rigidbody>();
-
 		thePlayer = GetComponent<PlayerLauncher>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-
+		
 		if (Input.GetMouseButtonUp(0))
 		{
 			playerClicked = true;
@@ -44,8 +43,9 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (playerClicked)
 		{
+			/*ReleaseDamage();*/
 			Move();
-			/* ReleaseDamage(); */
+			playerClicked = false;
 		}
 
 	}
@@ -56,15 +56,20 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Physics.Raycast(ray, out hit, 1000, layerMask))
 		{
-			targetPosition = hit.point;
 			//Debug.Log("target pos is " + targetPosition);
 			//this.transform.LookAt(targetPosition);
-			lookAtTarget = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y,
-				targetPosition.z - transform.position.z) * Time.fixedDeltaTime;
+			targetPosition = hit.point;
+			
+			lookAtTarget =
+			new Vector3
+			(targetPosition.x - transform.position.x,
+			targetPosition.y - transform.position.y,
+			targetPosition.z - transform.position.z)
+			* Time.fixedDeltaTime;
+			
 			playerRot = Quaternion.LookRotation(lookAtTarget);
 
 		}
-
 	}
 
 
@@ -72,8 +77,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 
 		/* rb.velocity = (targetPosition - this.transform.position) * moveSpeed * Time.fixedDeltaTime; */
-		Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, targetPosition.z - transform.position.z);
-		rb.velocity = direction * thePlayer.currentSpeedBoost;
+		Vector3 direction = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y, targetPosition.z - transform.position.z);
+		rb.velocity = direction * moveSpeed * Time.deltaTime;
 		if (transform.position == targetPosition)
 		{
 			rb.velocity = Vector3.zero;

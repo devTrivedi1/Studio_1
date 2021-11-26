@@ -21,7 +21,7 @@ public class GuardRotation : MonoBehaviour
     {
         thePlayer = GameObject.FindGameObjectWithTag("Player");
         rotSpeed = 20;
-        facingRange = 40;
+        facingRange = 60;
 
       
     }
