@@ -11,6 +11,7 @@ public class FloorTrapWork : MonoBehaviour
 
     public Vector3 riseHeight;
     public bool touchedThePlate;
+    public bool hasTouchedPlate;
 
     public float lerpTimeUp;
     private float currentLerpTimeUp = 0;
@@ -38,6 +39,7 @@ public class FloorTrapWork : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             touchedThePlate = true;
+            hasTouchedPlate = true;
         }
     }
 
@@ -76,6 +78,12 @@ public class FloorTrapWork : MonoBehaviour
             }
             float ratio = currentLerpTimeDown / lerpTimeDown;
             theSpikes.transform.position = Vector3.Lerp(startPos + endPos, startPos, ratio);
+            if(theSpikes.transform.position == startPos && hasTouchedPlate)
+            {
+                GameObject trapPanel = GetComponent<GameObject>();
+                trapPanel = this.gameObject;
+                trapPanel.SetActive(false);
+            }
         }
        
     }
