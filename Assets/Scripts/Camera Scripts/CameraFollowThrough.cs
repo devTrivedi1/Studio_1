@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class CameraFollowThrough : MonoBehaviour
 {
-    public GameObject followPlayer;
-    [SerializeField]private Vector3 offSet = new Vector3(0, 50, -15);
+	public GameObject followPlayer;
+	[SerializeField] private Vector3 offSet = new Vector3(0, 50, -15);
 
-    void Start()
-    {
+	void Start()
+	{
+		followPlayer = GameObject.FindGameObjectWithTag("Player");
+	}
+
+	void Update()
+	{
         followPlayer = GameObject.FindGameObjectWithTag("Player");
-    }
+		transform.position = followPlayer.transform.position + offSet;
+	}
 
-    void Update()
-    {
-        transform.position = followPlayer.transform.position + offSet;
-    }
 }

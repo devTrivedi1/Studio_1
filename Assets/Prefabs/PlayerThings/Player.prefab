@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 395520424}
   m_Layer: 3
   m_Name: Health_Bar
-  m_TagString: Untagged
+  m_TagString: HealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -719,7 +719,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  thePlayer: {fileID: 0}
+  playerLauncher: {fileID: 0}
+  playerLunge: {fileID: 0}
 --- !u!114 &336476995092473271
 MonoBehaviour:
   m_ObjectHideFlags: 0

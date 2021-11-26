@@ -15,7 +15,7 @@ public class PlayerLauncher : MonoBehaviour
     private float addTheSpeed = 6.5f;
     public float maxSpeed = 150;//(player's speed plus the speed boost).
 
-    private float speedReset = 1.0f;//Time to wait to reset the move speed;
+    private float speedReset = 0.2f;//Time to wait to reset the move speed;
 
     public PlayerMovement playerMovement;
     private bool playerReachedTarget;
@@ -25,7 +25,7 @@ public class PlayerLauncher : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        currentSpeedBoost = 40f;
+        currentSpeedBoost = 50f;
         //speedReset = 1.0f;
        
 
@@ -120,7 +120,7 @@ public class PlayerLauncher : MonoBehaviour
             //yield return new WaitUntil(() => playerReachedTarget == true);
             yield return new WaitForSeconds(speedReset);
             currentSpeedBoost = 0;
-            playerMovement.moveSpeed = 150f;
+            playerMovement.moveSpeed = 50f;
         }
         
     }

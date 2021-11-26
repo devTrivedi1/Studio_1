@@ -154,7 +154,7 @@ public class PlayerDash : MonoBehaviour
             this.enabled = false;
 		}
 	}
-	/* void OnCollisionEnter(Collision collision)
+	void OnCollisionEnter(Collision collision)
 	{
 		if(collision.gameObject.tag == "Obstacle" && isDashing)
 		{
@@ -164,5 +164,5 @@ public class PlayerDash : MonoBehaviour
 		{
 			collision.gameObject.GetComponent<BoxCollider>().enabled = true;
 		}
-	} */
+	}
 }

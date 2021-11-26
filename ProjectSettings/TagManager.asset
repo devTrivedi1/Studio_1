@@ -16,6 +16,7 @@ TagManager:
   - TransparentWall
   - OutOfBounds
   - Obstacle
+  - HealthBar
   layers:
   - Default
   - TransparentFX
