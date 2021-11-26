@@ -15,6 +15,7 @@ TagManager:
   - SolidWall
   - TransparentWall
   - OutOfBounds
+  - TrapPanel
   layers:
   - Default
   - TransparentFX

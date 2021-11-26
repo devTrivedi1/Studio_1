@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerLauncher playerLauncher;
     public PlayerLunge playerLunge;
+
     //Transform forceTransform;
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerLauncher = GetComponent<PlayerLauncher>();
         playerLunge = GetComponent<PlayerLunge>();
+
     }
 
     // Update is called once per frame
@@ -113,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.tag == "TrapPanel")
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+           
         }
     }
   /*  private void OnCollisionExit(Collision collision)

@@ -34,15 +34,7 @@ public class PlayerTakeDamage : MonoBehaviour
             }
             Debug.Log("Your health is now " + currentHealth);
         }
-        if(collision.gameObject.tag == "Trap Spikes")
-        {
-            currentHealth -= 5;
-            if(currentHealth <= 0)
-            {
-                Destroy(gameObject);
-            }
-            Debug.Log("You hit a spike!");
-        }
+      
         if(collision.gameObject.tag == "GuardProjectile")
         {
             rb.velocity = Vector3.zero;
@@ -50,5 +42,17 @@ public class PlayerTakeDamage : MonoBehaviour
             Debug.Log("your health is " + currentHealth);
         }
     }
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Trap Spikes")
+        {
+            currentHealth -= 5;
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+            Debug.Log("You hit a spike!");
+        }
+    }
+
 }

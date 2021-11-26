@@ -66,6 +66,13 @@ public class PlayerLunge : MonoBehaviour
             player.playerClicked = false;
         }
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            isGrounded = false;
+        }
+    }
     public void CancelLunge()
     {
         if(shouldLunge && isGrounded == false)
