@@ -18,6 +18,7 @@ TagManager:
   - Obstacle
   - HealthBar
   - TrapPanel
+  - GuardChaser
   layers:
   - Default
   - TransparentFX

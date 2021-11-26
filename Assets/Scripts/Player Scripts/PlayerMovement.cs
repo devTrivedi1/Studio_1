@@ -47,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
 		if (playerClicked)
 		{
 			Move();
-
 			/* ReleaseDamage(); */
 		}
 
@@ -62,8 +61,10 @@ public class PlayerMovement : MonoBehaviour
 			targetPosition = hit.point;
 			//Debug.Log("target pos is " + targetPosition);
 			//this.transform.LookAt(targetPosition);
-			lookAtTarget = new Vector3(targetPosition.x - transform.position.x, targetPosition.y - transform.position.y,
-				targetPosition.z - transform.position.z) * Time.fixedDeltaTime;
+			lookAtTarget = 
+			new Vector3(targetPosition.x - transform.position.x, 
+			targetPosition.y - transform.position.y,
+			targetPosition.z - transform.position.z) * Time.fixedDeltaTime;
 			playerRot = Quaternion.LookRotation(lookAtTarget);
 
 		}
@@ -91,7 +92,6 @@ public class PlayerMovement : MonoBehaviour
 		if (transform.position == targetPosition)
 		{
 			rb.velocity = Vector3.zero;
-			Debug.Log(rb.velocity);
 		}
 
 		/* rb.velocity = Vector3.MoveTowards(this.transform.position, targetPosition + offset, moveSpeed * Time.deltaTime); */

@@ -49,7 +49,18 @@ public class PlayerTakeDamage : MonoBehaviour
 		if (collision.gameObject.tag == "GuardProjectile")
 		{
 			rb.velocity = Vector3.zero;
-			currentHealth -= 5;
+			currentHealth -= 10;
+			if (currentHealth <= 0)
+			{
+				Destroy(gameObject);
+				RespawnPlayer();
+			}
+			Debug.Log("your health is " + currentHealth);
+		}
+		if (collision.gameObject.tag == "GuardChaser")
+		{
+			rb.velocity = Vector3.zero;
+			currentHealth -= 25;
 			if (currentHealth <= 0)
 			{
 				Destroy(gameObject);
