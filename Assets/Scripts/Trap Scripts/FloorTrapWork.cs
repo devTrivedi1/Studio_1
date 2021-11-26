@@ -24,8 +24,8 @@ public class FloorTrapWork : MonoBehaviour
     {
         startPos = theSpikes.transform.position;
         endPos = riseHeight;
-        lerpTimeUp = 1;
-        lerpTimeDown = 3;
+        /*lerpTimeUp = 1;
+        lerpTimeDown = 3;*/
     }
 
     // Update is called once per frame
@@ -34,9 +34,9 @@ public class FloorTrapWork : MonoBehaviour
         MoveSpikesUp();
         MoveSpikesDown();
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
             touchedThePlate = true;
             hasTouchedPlate = true;
@@ -52,18 +52,19 @@ public class FloorTrapWork : MonoBehaviour
             {
                 currentLerpTimeUp = lerpTimeUp;
             }
-            float ratio = currentLerpTimeUp / lerpTimeUp;
+            float ratio = lerpTimeUp / currentLerpTimeUp;
             theSpikes.transform.position = Vector3.Lerp(startPos, startPos + endPos, ratio);
         }
 
        
     }
-    private void OnCollisionExit(Collision collision)
-{
-       
-        if (collision.gameObject.tag == "Player")
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
         {
             touchedThePlate = false;
+            currentLerpTimeUp = 0;
+            currentLerpTimeDown = 0;
         }
     }
 
@@ -81,8 +82,8 @@ public class FloorTrapWork : MonoBehaviour
             if(theSpikes.transform.position == startPos && hasTouchedPlate)
             {
                 GameObject trapPanel = GetComponent<GameObject>();
-                trapPanel = this.gameObject;
-                trapPanel.SetActive(false);
+               /* trapPanel = this.gameObject;
+                trapPanel.SetActive(false);*/
             }
         }
        
