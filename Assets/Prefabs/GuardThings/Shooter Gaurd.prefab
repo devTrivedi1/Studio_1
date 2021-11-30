@@ -522,14 +522,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theProjectile: {fileID: 1981696232617802326, guid: 486d341f2d404124096b995a0177c67d, type: 3}
   spawnDelay: 1
-  shootingRange: 40
+  shootingRange: 60
   distanceToPlayer: 0
   inShootingRange: 0
   timer: 0
   projectileMoveSpeed: 100
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!114 &2421886378715916373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,11 +544,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotSpeed: 20
   inFacingRange: 0
-  facingRange: 60
+  facingRange: 70
   distanceToPlayer: 0
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!114 &5289522513810661310
 MonoBehaviour:
   m_ObjectHideFlags: 0

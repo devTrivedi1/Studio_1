@@ -30,9 +30,9 @@ TagManager:
   - Obstacle
   - Invisible
   - enemyObstecle
-  - 
-  - 
-  - 
+  - HighWalls
+  - Door
+  - NOTHING
   - 
   - 
   - 

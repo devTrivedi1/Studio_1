@@ -47,6 +47,7 @@ public class GuardShoot : MonoBehaviour
 			if (timer >= spawnDelay)
 			{
 				StartFiring();
+				projectileMoveSpeed++;
 			}
 		}
 		else

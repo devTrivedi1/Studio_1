@@ -14,6 +14,8 @@ public class PatrollerGuardMovement : MonoBehaviour
     public float chasingRange;
 
     public float distanceToPlayer;
+    
+    public LayerMask mask;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +45,7 @@ public class PatrollerGuardMovement : MonoBehaviour
             inChasingRange = false;
         }
 
-        if (inChasingRange)
+        if (inChasingRange && !Physics.Linecast(transform.position, this.thePlayer.transform.position, mask))
         {
             Vector3 target = thePlayer.transform.position;
             transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);

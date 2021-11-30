@@ -110,3 +110,6 @@ MonoBehaviour:
   inChasingRange: 0
   chasingRange: 30
   distanceToPlayer: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 128

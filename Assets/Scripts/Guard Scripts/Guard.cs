@@ -5,7 +5,7 @@ using UnityEngine;
 public class Guard : MonoBehaviour
 {
 	public Transform pathHolder;
-	public float speed = 6f;
+	public float speed;
 	private float waitTime = .05f;
 	private float turnSpeed = 180;
 
@@ -21,13 +21,20 @@ public class Guard : MonoBehaviour
 	private Rigidbody guardRB;
 	private float guardSpeed = 5f;
 
+	[SerializeField] private GameObject spawnEnemies;
+	private int startSpawn = 1;
+	private int spawnDelay = 1;
+	private Vector3 pos;
+	private float timer;
+
 	void Start()
 	{
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        originalSpotLightColor = spotLight.color;
+		speed = Random.Range(8, 17);
+		player = GameObject.FindGameObjectWithTag("Player").transform;
+		originalSpotLightColor = spotLight.color;
 		viewAngle = spotLight.spotAngle;
-		
+
 		guardRB = GetComponent<Rigidbody>();
 		playerSpotted = GameObject.FindGameObjectWithTag("Player");
 
@@ -36,14 +43,24 @@ public class Guard : MonoBehaviour
 		{
 			wayPoints[i] = pathHolder.GetChild(i).position;
 		}
-
+		pos = new Vector3(Random.Range(-10, 10), 1.4f, Random.Range(-10, 10));
 		StartCoroutine(FollowPath(wayPoints));
 	}
 
-    void Update()
-    {
-	
-    }
+	void Update()
+	{
+		spawnDelay = 1;
+		timer += Time.deltaTime;
+		if (CanSeePlayer())
+		{
+			spotLight.color = Color.red;
+			SpawnEnemies();
+		}
+		else
+		{
+			spotLight.color = originalSpotLightColor;
+		}
+	}
 
 
 	IEnumerator FollowPath(Vector3[] waypoints)
@@ -64,7 +81,7 @@ public class Guard : MonoBehaviour
 				yield return StartCoroutine(TurnToFace(targetWaypoint));
 			}
 			yield return null;
-			
+
 		}
 	}
 
@@ -100,9 +117,40 @@ public class Guard : MonoBehaviour
 		Gizmos.color = Color.cyan;
 		Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
 	}
-	
 
-	
 
+
+	public void SpotPlayer()
+	{
+		Vector3 lookDirection = (playerSpotted.transform.position - transform.position).normalized;
+		guardRB.AddForce(lookDirection * guardSpeed);
+	}
+
+	public bool CanSeePlayer()
+	{
+		if (Vector3.Distance(transform.position, this.player.position) < viewDistance)
+		{
+			Vector3 dirToPlayer = (this.player.position - transform.position).normalized;
+			float angleBetweenGuardAndPlayer = Vector3.Angle(transform.forward, dirToPlayer);
+			if (angleBetweenGuardAndPlayer < viewAngle / 2f)
+			{
+				if (!Physics.Linecast(transform.position, this.player.position, viewMask))
+				{
+					SpotPlayer();
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	void SpawnEnemies()
+	{
+		if (timer > spawnDelay)
+		{
+			Instantiate(spawnEnemies, transform.TransformPoint(pos), transform.rotation);
+			timer = 0;
+		}
+	}
 
 }

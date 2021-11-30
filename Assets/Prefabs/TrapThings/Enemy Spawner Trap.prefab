@@ -94,8 +94,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.3081669, y: 1.2670873, z: 1.1524824}
+  m_Center: {x: 0.014851729, y: 0.006774664, z: -0.016517958}
 --- !u!114 &2880227981494357087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,11 +105,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2880227981494357080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfe465f1aabf63049909e8ede42d0a38, type: 3}
+  m_Script: {fileID: 11500000, guid: caadae1d1dce046458981266bc05390f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 5328680592448630054, guid: 42b94769a497a5b4a97c69c0fce67a3a, type: 3}
+  - {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
   thePlayer: {fileID: 0}
   trapRange: 0
   playerDistanceToTrap: 0

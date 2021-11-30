@@ -36,7 +36,7 @@ public class FloorTrapWork : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "GuardChaser")
         {
             touchedThePlate = true;
             hasTouchedPlate = true;

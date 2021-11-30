@@ -8,10 +8,12 @@ public class PauseMenu : MonoBehaviour
 	public static bool gamePaused = false;
 	public GameObject pauseMenuUI;
 	public GameObject healthBar;
+	RotationalMovement player; 
 	// Update is called once per frame
 	void Awake()
 	{
 		healthBar = GameObject.FindGameObjectWithTag("HealthBar");
+		player = FindObjectOfType<RotationalMovement>();
 	}
 	void Update()
 	{
@@ -38,6 +40,7 @@ public class PauseMenu : MonoBehaviour
 		healthBar.SetActive(true);
 		Time.timeScale = 1f;
 		gamePaused = false;
+		player.enabled = true;
 	}
 
 	void Pause()
@@ -46,6 +49,7 @@ public class PauseMenu : MonoBehaviour
 		healthBar.SetActive(false);
 		Time.timeScale = 0f;
 		gamePaused = true;
+		player.enabled = false;
 	}
 
 	public void LoadMenu()
