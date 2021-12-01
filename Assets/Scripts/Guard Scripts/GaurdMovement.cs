@@ -61,7 +61,6 @@ public class GaurdMovement : MonoBehaviour
 			rb.velocity = Vector3.zero;
 			rb.freezeRotation = true;
 		}
-
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
@@ -71,6 +70,4 @@ public class GaurdMovement : MonoBehaviour
 
 		}
 	}
-
-
 }

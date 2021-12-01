@@ -13,7 +13,7 @@ public class PlayerDash : MonoBehaviour
 	//private float dashDirection;
 
 	public bool isDashing;
-	bool hasDashed;
+	public bool hasDashed;
 
 
 
@@ -64,7 +64,7 @@ public class PlayerDash : MonoBehaviour
 				hasDashed = isDashing;
 				//Debug.Log("direction gotten");
 				//Debug.Log("current dash t is " + curretDashTimer);
-			}		
+			}
 		}
 		/* else if (Input.GetKeyDown(KeyCode.D))
         {
@@ -148,19 +148,19 @@ public class PlayerDash : MonoBehaviour
 		{
 			playerMovement.enabled = false;
 		}
-		else if(hasDashed)
+		else if (hasDashed)
 		{
 			playerMovement.enabled = true;
-            this.enabled = false;
+			this.enabled = false;
 		}
 	}
 	void OnCollisionEnter(Collision collision)
 	{
-		if(collision.gameObject.tag == "Obstacle" && isDashing)
+		if (collision.gameObject.tag == "Obstacle" && isDashing)
 		{
-			
+
 		}
-		else if(hasDashed)
+		else if (hasDashed)
 		{
 			collision.gameObject.GetComponent<BoxCollider>().enabled = true;
 		}

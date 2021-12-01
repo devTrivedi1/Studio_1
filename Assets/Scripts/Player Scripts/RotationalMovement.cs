@@ -35,7 +35,7 @@ public class RotationalMovement : MonoBehaviour
 		mousePositionInWorldSpace = Input.mousePosition;
 		var ray = camera.ScreenPointToRay(mousePositionInWorldSpace);
 		RaycastHit hit;
-		if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
+		if (Physics.Raycast(ray, out hit))
 		{
 			mousePositionInWorldSpace = hit.point;
 			//Debug.Log(hit.transform);

@@ -43,7 +43,7 @@ public class PlayerLunge : MonoBehaviour
 		//float y = lungeHeight;
 		//float z = rb.velocity.z;
 		float lungeDirection = 30;
-		Vector3 lungePower = new Vector3(x, lungeHeight - 9.81f, lungeDirection);
+		Vector3 lungePower = new Vector3(x, lungeHeight - 4, lungeDirection);
 
 
 		if (shouldLunge && isGrounded)
