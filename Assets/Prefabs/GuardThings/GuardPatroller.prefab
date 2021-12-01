@@ -185,8 +185,7 @@ MonoBehaviour:
   viewMask:
     serializedVersion: 2
     m_Bits: 256
-  spawnEnemies:
-  - {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+  spawnEnemies: {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
 --- !u!114 &1442791182519308834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +193,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442791182519308859}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02e8012b46c516a4289f91c9b638231e, type: 3}
   m_Name: 

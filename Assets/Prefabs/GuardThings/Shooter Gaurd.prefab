@@ -529,7 +529,7 @@ MonoBehaviour:
   projectileMoveSpeed: 100
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
 --- !u!114 &2421886378715916373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,7 +548,7 @@ MonoBehaviour:
   distanceToPlayer: 0
   mask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
 --- !u!114 &5289522513810661310
 MonoBehaviour:
   m_ObjectHideFlags: 0
