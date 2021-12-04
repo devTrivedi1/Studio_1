@@ -2,39 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardTakeDamage : MonoBehaviour
+public class ChaserGuardTakeDamage : MonoBehaviour
 {
-	public float currentHealth;
-	public float maxHealth;
+
+	public float chaserCurrentHealth;
+	public float chaserMaxHealth;
 	// Start is called before the first frame update
 	void Start()
 	{
-		maxHealth = 100;
-		currentHealth = maxHealth;
+		chaserMaxHealth = 100;
+		chaserCurrentHealth = chaserMaxHealth;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		DestroyShooterGuard();
+		DestroyChaserGuard();
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.tag == "Player")
 		{
-			currentHealth -= 25;
+			chaserCurrentHealth -= 25;
+			Debug.Log("u lost 25 health");
 		}
 	}
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Trap Spikes")
 		{
-			currentHealth -= 15;
+			chaserCurrentHealth -= 15;
 		}
 	}
-	public void DestroyShooterGuard()
+	public void DestroyChaserGuard()
 	{
-		if (currentHealth <= 0)
+		if (chaserCurrentHealth <= 0)
 		{
 			Destroy(this.gameObject);
 		}

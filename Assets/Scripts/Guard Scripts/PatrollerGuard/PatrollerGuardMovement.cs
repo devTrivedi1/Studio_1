@@ -64,6 +64,10 @@ public class PatrollerGuardMovement : MonoBehaviour
             rb.velocity = Vector3.zero;
 
         }
+        if(collision.gameObject.tag == "GuardProjectile")
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 
 }

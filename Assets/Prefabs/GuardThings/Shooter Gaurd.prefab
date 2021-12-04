@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f5cc83321668c42aa681531ad23dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shooterGuard: {fileID: 5289522513810661310}
+  shooterGuard: {fileID: 1408083740544350505}
   fillImage: {fileID: 662846971}
 --- !u!1 &662846969
 GameObject:
@@ -405,10 +405,10 @@ GameObject:
   - component: {fileID: 8661287133654615965}
   - component: {fileID: 8661287133654615963}
   - component: {fileID: 2421886378715916373}
-  - component: {fileID: 5289522513810661310}
+  - component: {fileID: 1408083740544350505}
   m_Layer: 0
   m_Name: Shooter Gaurd
-  m_TagString: Enemy
+  m_TagString: ShooterGuard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,7 +549,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &5289522513810661310
+--- !u!114 &1408083740544350505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -558,11 +558,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8661287133654615941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd63aacf3205824449d395d7a44b0506, type: 3}
+  m_Script: {fileID: 11500000, guid: 1357aaa32c365b742adfaa6616d535c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 0
+  shooterCurrentHealth: 0
+  shooterMaxHealth: 0
 --- !u!1 &8661287134173664335
 GameObject:
   m_ObjectHideFlags: 0

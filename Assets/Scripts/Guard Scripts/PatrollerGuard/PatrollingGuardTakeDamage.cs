@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class PatrollingGuardTakeDamage : MonoBehaviour
 {
-    public float currentHealth;
-    public float maxHealth;
+    public float patrollerCurrentHealth;
+    public float patrollerMaxHealth;
 
 
     // Start is called before the first frame update
     private void Awake()
     {
-        maxHealth = 100;
-        currentHealth = maxHealth;
+        patrollerMaxHealth = 100;
+        patrollerCurrentHealth = patrollerMaxHealth;
     }
 
     // Update is called once per frame
@@ -25,9 +25,9 @@ public class PatrollingGuardTakeDamage : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            currentHealth -= 10;
-            Debug.Log("enemy health is " + currentHealth);
-            if (currentHealth <= 0)
+            patrollerCurrentHealth -= 10;
+            Debug.Log("enemy health is " + patrollerCurrentHealth);
+            if (patrollerCurrentHealth <= 0)
             {
                 Destroy(gameObject);
                 Debug.Log("you killed the enemy");
@@ -35,9 +35,9 @@ public class PatrollingGuardTakeDamage : MonoBehaviour
         }
         if (collision.gameObject.tag == "EnemyArrow")
         {
-            currentHealth -= 5;
+            patrollerCurrentHealth -= 5;
             Destroy(collision.gameObject);
-            if (currentHealth <= 0)
+            if (patrollerCurrentHealth <= 0)
             {
                 Destroy(gameObject);
             }
@@ -45,7 +45,7 @@ public class PatrollingGuardTakeDamage : MonoBehaviour
     }
     public void DestroyPatrollingGuard()
     {
-        if(currentHealth <= 0)
+        if(patrollerCurrentHealth <= 0)
         {
             Destroy(gameObject);
         }

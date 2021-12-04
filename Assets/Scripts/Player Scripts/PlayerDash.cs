@@ -8,9 +8,10 @@ public class PlayerDash : MonoBehaviour
 	public float dashForce;
 
 	public float dashSpeed;
-	private float curretDashTimer;
+	public float curretDashTimer;
 	public float dashTimer;
-	//private float dashDirection;
+	public float dashDistance;
+	public Vector3 dashDirection;
 
 	public bool isDashing;
 	public bool hasDashed;
@@ -32,7 +33,9 @@ public class PlayerDash : MonoBehaviour
 		dashForce = 2;
 		dashSpeed = 150f;
 
-		dashTimer = 0.25f;
+		dashTimer = 2f;
+		dashDistance = 30f;
+		//dashDirection = transform.position;
 		playerMovement = GetComponent<PlayerMovement>();
 	}
 
@@ -52,20 +55,24 @@ public class PlayerDash : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.W))
 		{
-			//Debug.Log("pressed A");
-			/* rb.velocity = Vector3.zero; */
+            //Debug.Log("pressed A");
+            /* rb.velocity = Vector3.zero; */
 
-			Vector3 forwardDash = Vector3.forward;
-			isDashing = true;
+            Vector3 forwardDash = transform.TransformDirection(Vector3.forward);
+            isDashing = true;
 
-			if (isDashing)
-			{
-				rb.velocity = transform.TransformDirection(forwardDash * dashSpeed);
-				hasDashed = isDashing;
-				//Debug.Log("direction gotten");
-				//Debug.Log("current dash t is " + curretDashTimer);
-			}
-		}
+
+            rb.velocity = forwardDash * dashSpeed;
+            hasDashed = true;
+
+
+
+
+
+            //Debug.Log("direction gotten");
+            //Debug.Log("current dash t is " + curretDashTimer);
+
+        }
 		/* else if (Input.GetKeyDown(KeyCode.D))
         {
             Vector3 right = new Vector3(dashForce, 0, 0);
@@ -134,15 +141,9 @@ public class PlayerDash : MonoBehaviour
 		}
 
 	}
-	public void DashCoolDown()
-	{
-		if (isDashing == false)
-		{
+	
 
-		}
-	}
-
-	public void MaintainDash()//Before if you dashed after clicking, you WOULD dash, but then proceed to move again to wherever you clicked. This function solves that.
+	public void MaintainDash()
 	{
 		if (isDashing)
 		{
@@ -154,15 +155,5 @@ public class PlayerDash : MonoBehaviour
 			this.enabled = false;
 		}
 	}
-	void OnCollisionEnter(Collision collision)
-	{
-		if (collision.gameObject.tag == "Obstacle" && isDashing)
-		{
-
-		}
-		else if (hasDashed)
-		{
-			collision.gameObject.GetComponent<BoxCollider>().enabled = true;
-		}
-	}
+	
 }

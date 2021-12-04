@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
 	public Vector3 newPosition;
 	public LayerMask layerMask;
-	public float normalizedSpeed;
 	private Rigidbody rb;
 
 	public PlayerLauncher playerLauncher;
@@ -38,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 			playerClicked = true;
 			SetTargetPosition();
 		}
-		Debug.Log(targetPosition);
+		//Debug.Log(targetPosition);
 	}
 
 
@@ -47,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 		if (playerClicked)
 		{
 			Move();
+			playerClicked = false;
 			/* ReleaseDamage(); */
 		}
 
@@ -61,10 +61,7 @@ public class PlayerMovement : MonoBehaviour
 			targetPosition = hit.point;
 			//Debug.Log("target pos is " + targetPosition);
 			//this.transform.LookAt(targetPosition);
-			lookAtTarget =
-			new Vector3(targetPosition.x - transform.position.x,
-			targetPosition.y - transform.position.y,
-			targetPosition.z - transform.position.z) * Time.fixedDeltaTime;
+			lookAtTarget = (targetPosition - transform.position) * Time.fixedDeltaTime;
 			playerRot = Quaternion.LookRotation(lookAtTarget);
 
 		}
@@ -74,30 +71,26 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Move()
 	{
-		Vector3 direction = (lookAtTarget - this.transform.position) * (moveSpeed * Time.deltaTime);
-		direction.y = -5f;
-		rb.velocity = direction;
-		/* if (transform.position == lookAtTarget)
-		{
-			rb.velocity = Vector3.zero;
-		} */
-		/* rb.velocity = (targetPosition - this.transform.position) * moveSpeed * Time.fixedDeltaTime; */
-		/* if (playerLunge.isGrounded == false)
-		{
-			Vector3 direction = targetPosition - this.transform.position;
-			rb.velocity = direction * (moveSpeed * Time.deltaTime);
-		}
-		else
-		{
-			Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, targetPosition.z - transform.position.z);
-			rb.velocity = direction * (moveSpeed * Time.deltaTime);
-		}
+		
+       
+        //rb.velocity = (targetPosition - this.transform.position) * moveSpeed * Time.fixedDeltaTime;
+        if (playerLunge.isGrounded == false)
+        {
+            Vector3 direction = targetPosition - this.transform.position;
+            rb.velocity = direction * (moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, targetPosition.z - transform.position.z);
+            rb.velocity = direction * (moveSpeed * Time.deltaTime);
+        }
 
 
-		if (transform.position == targetPosition)
-		{
-			rb.velocity = Vector3.zero;
-		} */
+        if (transform.position == targetPosition)
+        {
+            rb.velocity = Vector3.zero;
+        }
+		
 
 
 		/* rb.velocity = Vector3.MoveTowards(this.transform.position, targetPosition + offset, moveSpeed * Time.deltaTime); */

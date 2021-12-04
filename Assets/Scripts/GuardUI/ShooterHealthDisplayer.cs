@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShooterHealthDisplayer : MonoBehaviour
 {
-    public GuardTakeDamage shooterGuard;
+    public ShooterGuardTakeDamage shooterGuard;
 
     public Image fillImage;
     private Slider slider;
@@ -30,7 +30,7 @@ public class ShooterHealthDisplayer : MonoBehaviour
         {
             fillImage.enabled = true;
         }
-        float fillValue = shooterGuard.currentHealth / shooterGuard.maxHealth;
+        float fillValue = shooterGuard.shooterCurrentHealth / shooterGuard.shooterMaxHealth;
         slider.value = fillValue;
 
     }

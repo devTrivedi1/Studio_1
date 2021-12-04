@@ -45,14 +45,14 @@ GameObject:
   - component: {fileID: 1442791182519308861}
   - component: {fileID: 1442791182519308858}
   - component: {fileID: 1442791182519308832}
-  - component: {fileID: 1442791182519308853}
   - component: {fileID: 1442791182519308862}
   - component: {fileID: 1442791182519308834}
   - component: {fileID: 7649540892115636246}
   - component: {fileID: 1442791182519308848}
+  - component: {fileID: 857387055166548503}
   m_Layer: 0
   m_Name: 'Patrolling Guard '
-  m_TagString: Untagged
+  m_TagString: PatrollingGuard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,19 +152,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &1442791182519308853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442791182519308859}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb93a528d65a7c947afc45fce1bd2259, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: []
 --- !u!114 &1442791182519308862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,9 +171,9 @@ MonoBehaviour:
   viewAngle: 0
   viewMask:
     serializedVersion: 2
-    m_Bits: 256
-  spawnEnemies:
-  - {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+    m_Bits: 384
+  guardRotation: {fileID: 0}
+  guardEnemySpawner: {fileID: 0}
 --- !u!114 &1442791182519308834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +181,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442791182519308859}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02e8012b46c516a4289f91c9b638231e, type: 3}
   m_Name: 
@@ -218,8 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab3131a7e683614e9ccb503c69b1565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 0
+  patrollerCurrentHealth: 0
+  patrollerMaxHealth: 0
 --- !u!114 &1442791182519308848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +214,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442791182519308859}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10370b647db95144cb99be72a4d75b03, type: 3}
   m_Name: 
@@ -241,6 +228,19 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 384
+--- !u!114 &857387055166548503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442791182519308859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc3d866d70da1140af941109bfe3915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnEnemies: {fileID: 0}
 --- !u!1 &1442791183845562244
 GameObject:
   m_ObjectHideFlags: 0

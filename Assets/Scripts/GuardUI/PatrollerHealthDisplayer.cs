@@ -30,7 +30,7 @@ public class PatrollerHealthDisplayer : MonoBehaviour
         {
             fillImage.enabled = true;
         }
-        float fillValue = patrollerGuard.currentHealth / patrollerGuard.maxHealth;
+        float fillValue = patrollerGuard.patrollerCurrentHealth / patrollerGuard.patrollerMaxHealth;
         slider.value = fillValue;
 
     }
