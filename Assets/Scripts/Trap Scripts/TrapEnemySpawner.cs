@@ -17,13 +17,14 @@ public class TrapEnemySpawner : MonoBehaviour
 	void Start()
 	{
 		thePlayer = GameObject.FindGameObjectWithTag("Player");
+		
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		SpawnRandomEnemies();
-		spawnRange = new Vector3(Random.Range(-10, 10), 1.4f, Random.Range(-10, 10));
+		spawnRange = new Vector3(Random.Range(-10, 10), 2f, Random.Range(-10, 10));
 	}
 	public void SpawnRandomEnemies()
 	{
@@ -31,7 +32,7 @@ public class TrapEnemySpawner : MonoBehaviour
 		{
 			for (int i = 0; i < enemies.Length; i++)
 			{
-				Instantiate(enemies[i], this.transform.TransformPoint(spawnRange), transform.rotation);
+				Instantiate(enemies[i], transform.TransformPoint(spawnRange), transform.rotation);
 			}
 		}
 
@@ -43,6 +44,7 @@ public class TrapEnemySpawner : MonoBehaviour
 			inTriggerRange = true;
 			SpawnRandomEnemies();
 			Destroy(this.gameObject, 0.02f);
+			
 		}
 	}
 	private void OnTriggerExit(Collider other)

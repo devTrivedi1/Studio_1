@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollowThrough : MonoBehaviour
 {
 	public GameObject followPlayer;
-	[SerializeField] private Vector3 offSet = new Vector3(0, 50, -15);
+	[SerializeField] private Vector3 offSet = new Vector3(0, 30, -60);
 
 	void Start()
 	{

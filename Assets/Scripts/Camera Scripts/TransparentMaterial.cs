@@ -9,8 +9,7 @@ public class TransparentMaterial : MonoBehaviour
 	[SerializeField] private Transform player;
 	private Transform camera;
 	private PlayerDash dashed;
-    public LayerMask mask1;
-    public LayerMask mask2;
+	public LayerMask mask;
 
 	// Start is called before the first frame update
 	void Start()
@@ -36,8 +35,8 @@ public class TransparentMaterial : MonoBehaviour
 		Ray ray1Forward = new Ray(camera.position, player.position - camera.position); //Ray1 allows for multiple rays if needed
 		Ray ray1Backwards = new Ray(player.position, camera.position - player.position); //Backward ray to make sure the object is transparent even if it's inside it
 
-		RaycastHit[] hitForward = Physics.RaycastAll(ray1Forward, cameraPlayerDistance);
-		RaycastHit[] hitBackward = Physics.RaycastAll(ray1Backwards, cameraPlayerDistance);
+		RaycastHit[] hitForward = Physics.RaycastAll(ray1Forward, cameraPlayerDistance, mask);
+		RaycastHit[] hitBackward = Physics.RaycastAll(ray1Backwards, cameraPlayerDistance, mask);
 
 		foreach (var hit in hitForward)
 		{
@@ -91,7 +90,6 @@ public class TransparentMaterial : MonoBehaviour
 		if (dashed.isDashing)
 		{
 			MakeObjectTransparent();
-            Physics.IgnoreLayerCollision(mask1, mask2, true);
 		}
 	}
     void OnTriggerExit(Collider other)
@@ -99,7 +97,6 @@ public class TransparentMaterial : MonoBehaviour
         if(dashed.hasDashed)
         {
             MakeObjectSolid();
-            Physics.IgnoreLayerCollision(mask1, mask2, false);
         }
     }
 }

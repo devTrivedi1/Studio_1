@@ -74,15 +74,15 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Move()
 	{
-		Vector3 direction = (lookAtTarget - this.transform.position) * (moveSpeed * Time.deltaTime);
+		/* Vector3 direction = (lookAtTarget - this.transform.position) * (moveSpeed * Time.deltaTime);
 		direction.y = -5f;
-		rb.velocity = direction;
+		rb.velocity = direction; */
 		/* if (transform.position == lookAtTarget)
 		{
 			rb.velocity = Vector3.zero;
 		} */
 		/* rb.velocity = (targetPosition - this.transform.position) * moveSpeed * Time.fixedDeltaTime; */
-		/* if (playerLunge.isGrounded == false)
+		if (playerLunge.isGrounded == false)
 		{
 			Vector3 direction = targetPosition - this.transform.position;
 			rb.velocity = direction * (moveSpeed * Time.deltaTime);
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 		if (transform.position == targetPosition)
 		{
 			rb.velocity = Vector3.zero;
-		} */
+		}
 
 
 		/* rb.velocity = Vector3.MoveTowards(this.transform.position, targetPosition + offset, moveSpeed * Time.deltaTime); */
