@@ -20,6 +20,10 @@ TagManager:
   - TrapPanel
   - GuardChaser
   - TrapDoors
+  - ShooterGuard
+  - ChaserGuard
+  - PatrollingGuard
+  - GameOverButton
   layers:
   - Default
   - TransparentFX
