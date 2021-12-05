@@ -19,6 +19,10 @@ TagManager:
   - HealthBar
   - TrapPanel
   - GuardChaser
+  - AttackBurst
+  - ChaserGuard
+  - ShooterGuard
+  - PatrollingGuard
   layers:
   - Default
   - TransparentFX
