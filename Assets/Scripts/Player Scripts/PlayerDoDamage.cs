@@ -55,7 +55,7 @@ public class PlayerDoDamage : MonoBehaviour
     {
         if (playerMovement.playerClicked)
         {
-            rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, upwardsModifier, ForceMode.Impulse);
+            //rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, upwardsModifier, ForceMode.Impulse);
             float y = rb.velocity.y;
             y = 0;
             Debug.Log("u go boom");
