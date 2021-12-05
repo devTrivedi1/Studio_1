@@ -1,6 +1,55 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3584957688558004899
+--- !u!114 &7025762787705632341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8372593477229921868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e4f792ed50ea04c9fbb40cff88199d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thePlayer: {fileID: 0}
+  moveSpeed: 10
+  rotSpeed: 20
+  inChasingRange: 0
+  chasingRange: 30
+  distanceToPlayer: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &1699172323779627409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8372593477229921868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30a43071079182548a9eefe362358fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaserCurrentHealth: 0
+  chaserMaxHealth: 0
+--- !u!114 &102472414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865394448331275758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05fbf098f6d4214ebf7ffb47f7e7e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaserGuard: {fileID: 1699172323779627409}
+  fillImage: {fileID: 865394447866526770}
+--- !u!1001 &865394448277684681
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -15,17 +64,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8661287133654615940, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
-      propertyPath: thePlayer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8661287133654615940, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
-      propertyPath: guardProjectile
-      value: 
+    - target: {fileID: 2421886378715916373, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
       propertyPath: m_Name
       value: Chaser Guard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+      propertyPath: m_TagString
+      value: ChaserGuard
       objectReference: {fileID: 0}
     - target: {fileID: 8661287133654615942, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -37,15 +86,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8661287133654615960, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.4
+      value: -380.26923
       objectReference: {fileID: 0}
     - target: {fileID: 8661287133654615960, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.77
+      value: 4.1
       objectReference: {fileID: 0}
     - target: {fileID: 8661287133654615960, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.81
+      value: -32.752617
       objectReference: {fileID: 0}
     - target: {fileID: 8661287133654615960, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -75,41 +124,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8661287133654615962, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
-      propertyPath: thePlayer
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8661287133654615963, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
       propertyPath: thePlayer
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 8661287133654615962, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+    - {fileID: 55491626, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
     - {fileID: 8661287133654615963, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+    - {fileID: 1408083740544350505, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
---- !u!1 &5328680592448630054 stripped
+--- !u!1 &8372593477229921868 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
-  m_PrefabInstance: {fileID: 3584957688558004899}
+  m_PrefabInstance: {fileID: 865394448277684681}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-2197609247199738017
+--- !u!1 &865394448331275758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 55491623, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+  m_PrefabInstance: {fileID: 865394448277684681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &865394447866526770 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 662846971, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+  m_PrefabInstance: {fileID: 865394448277684681}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5328680592448630054}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98e4f792ed50ea04c9fbb40cff88199d, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 0}
-  moveSpeed: 10
-  rotSpeed: 20
-  inChasingRange: 0
-  chasingRange: 30
-  distanceToPlayer: 0
-  mask:
-    serializedVersion: 2
-    m_Bits: 132

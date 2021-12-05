@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ProjectileManager : MonoBehaviour
 {
-    
+    public GameObject patrollingGuard;
     // Start is called before the first frame update
     void Start()
     {
-        
+        patrollingGuard = GameObject.FindGameObjectWithTag("PatrollingGuard");
+        Physics.IgnoreCollision(this.GetComponent<Collider>(), patrollingGuard.GetComponent<Collider>());
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -21,6 +22,7 @@ public class ProjectileManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+      
        
     }
 }

@@ -21,11 +21,9 @@ public class Guard : MonoBehaviour
 	private Rigidbody guardRB;
 	private float guardSpeed = 5f;
 
-	[SerializeField] private GameObject spawnEnemies;
-	private int startSpawn = 1;
-	private int spawnDelay = 1;
-	private Vector3 pos;
-	private float timer;
+	
+	public GuardRotation guardRotation;
+	public GuardEnemySpawner guardEnemySpawner;
 
 	void Start()
 	{
@@ -43,18 +41,20 @@ public class Guard : MonoBehaviour
 		{
 			wayPoints[i] = pathHolder.GetChild(i).position;
 		}
-		pos = new Vector3(Random.Range(-10, 10), 1.4f, Random.Range(-10, 10));
+	
 		StartCoroutine(FollowPath(wayPoints));
+
+		guardRotation = GetComponent<GuardRotation>();
+		guardEnemySpawner = GetComponent<GuardEnemySpawner>();
 	}
 
 	void Update()
 	{
-		spawnDelay = 1;
-		timer += Time.deltaTime;
-		if (CanSeePlayer())
+		
+		if (guardRotation.inFacingRange)
 		{
 			spotLight.color = Color.red;
-			SpawnEnemies();
+			guardEnemySpawner.SpawnEnemies();
 		}
 		else
 		{
@@ -120,37 +120,29 @@ public class Guard : MonoBehaviour
 
 
 
-	public void SpotPlayer()
-	{
-		Vector3 lookDirection = (playerSpotted.transform.position - transform.position).normalized;
-		guardRB.AddForce(lookDirection * guardSpeed);
-	}
+   /* public void SpotPlayer()
+    {
+        Vector3 lookDirection = (playerSpotted.transform.position - transform.position).normalized;
+        guardRB.AddForce(lookDirection * guardSpeed);
+    }*/
 
-	public bool CanSeePlayer()
-	{
-		if (Vector3.Distance(transform.position, this.player.position) < viewDistance)
-		{
-			Vector3 dirToPlayer = (this.player.position - transform.position).normalized;
-			float angleBetweenGuardAndPlayer = Vector3.Angle(transform.forward, dirToPlayer);
-			if (angleBetweenGuardAndPlayer < viewAngle / 2f)
-			{
-				if (!Physics.Linecast(transform.position, this.player.position, viewMask))
-				{
-					SpotPlayer();
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+   /* public bool CanSeePlayer()
+    {
+        if (Vector3.Distance(transform.position, this.player.position) < viewDistance)
+        {
+            Vector3 dirToPlayer = (this.player.position - transform.position).normalized;
+            float angleBetweenGuardAndPlayer = Vector3.Angle(transform.forward, dirToPlayer);
+            if (angleBetweenGuardAndPlayer < viewAngle / 2f)
+            {
+                if (!Physics.Linecast(transform.position, this.player.position, viewMask))
+                {
+                    SpotPlayer();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }*/
 
-	void SpawnEnemies()
-	{
-		if (timer > spawnDelay)
-		{
-			Instantiate(spawnEnemies, transform.TransformPoint(pos), transform.rotation);
-			timer = 0;
-		}
-	}
-
+    
 }

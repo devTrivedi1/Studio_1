@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarDisplayer : MonoBehaviour
+public class ChaserHealthDisplayer : MonoBehaviour
 {
-    public PlayerTakeDamage thePlayer;
+    public ChaserGuardTakeDamage chaserGuard;
 
     public Image fillImage;
     private Slider slider;
@@ -18,20 +18,20 @@ public class HealthBarDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DisplayHealth();
+        DisplayShooterHealth();
     }
-    public void DisplayHealth()
+    public void DisplayShooterHealth()
     {
-        if(slider.value <= slider.minValue)
+        if (slider.value <= slider.minValue)
         {
             fillImage.enabled = false;
         }
-        if(slider.value > slider.minValue && !fillImage.enabled)
+        if (slider.value > slider.minValue && !fillImage.enabled)
         {
             fillImage.enabled = true;
         }
-        float fillValue = thePlayer.playerCurrentHealth / thePlayer.playerMaxHealth;
+        float fillValue = chaserGuard.chaserCurrentHealth / chaserGuard.chaserMaxHealth;
         slider.value = fillValue;
-       
+
     }
 }
