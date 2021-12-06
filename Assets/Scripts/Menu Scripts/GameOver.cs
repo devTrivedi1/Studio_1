@@ -9,7 +9,7 @@ public class GameOver : MonoBehaviour
     public Animator deathAnimationScreen;
 	PlayerTakeDamage playerDeath;
 	public Animator animate;
-	// Start is called before the first frame update
+	
 	void Start()
 	{
         animate = gameObject.GetComponent<Animator>();
@@ -18,7 +18,6 @@ public class GameOver : MonoBehaviour
 
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		if (playerDeath.playerCurrentHealth <= 0)

@@ -23,7 +23,7 @@ public class GuardHealth : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            health -= 10;
+            health -= 25;
             Debug.Log("enemy health is " + health);
             if(health <= 0)
             {

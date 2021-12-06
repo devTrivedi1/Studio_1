@@ -49,7 +49,9 @@ public class GaurdMovement : MonoBehaviour
 		if (inChasingRange && !Physics.Linecast(transform.position, this.thePlayer.transform.position, mask))
 		{
 			Vector3 target = thePlayer.transform.position;
-			transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+			Vector3 moveDirection = (thePlayer.transform.position - this.transform.position).normalized;
+			rb.AddForce(moveDirection * moveSpeed);
+			/* transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime); */
 			moveSpeed += 6.5f * Time.deltaTime;
 			if (moveSpeed >= 40)
 			{

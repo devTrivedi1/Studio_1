@@ -21,10 +21,17 @@ public class ChaserGuardTakeDamage : MonoBehaviour
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag == "Player")
+		if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Wall")
 		{
 			chaserCurrentHealth -= 25;
 			Debug.Log("u lost 25 health");
+		}
+	}
+	void OnCollisionExit(Collision other)
+	{
+		if(other.gameObject.tag == "Wall")
+		{
+			
 		}
 	}
 	void OnTriggerEnter(Collider other)

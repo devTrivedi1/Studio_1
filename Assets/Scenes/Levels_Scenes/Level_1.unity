@@ -297,7 +297,7 @@ Transform:
   - {fileID: 1255352741}
   - {fileID: 1696927235}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &115700631
 GameObject:
@@ -1179,7 +1179,7 @@ Transform:
   m_LocalScale: {x: 2.9209, y: 2.9209, z: 2.9209}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &560154056
 GameObject:
@@ -2366,7 +2366,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!81 &1272044148
 AudioListener:
@@ -3077,6 +3077,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 44.662586, y: 1.0387632, z: 1}
   m_Center: {x: -18.503336, y: 0.019382307, z: 0}
+--- !u!1 &1483234322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 336476995092473163, guid: dd499c0643324ef49a8b1f957b57b1f9, type: 3}
+  m_PrefabInstance: {fileID: 1505364384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1483234323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483234322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999183a119748aa4299d69627f9293d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackEnergyBurst: {fileID: 0}
+  playerMovement: {fileID: 0}
+  currentParticleTimer: 0
+  particleTimer: 0
 --- !u!1001 &1505364384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4096,7 +4117,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3624565111133844812, guid: d4beef32d116dae43aa789e1d5cd7d59, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3624565111133844812, guid: d4beef32d116dae43aa789e1d5cd7d59, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4440,7 +4461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4737367896237467053, guid: 1c974eb1dd246704fb135bf6a290bfe3, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4737367896237467053, guid: 1c974eb1dd246704fb135bf6a290bfe3, type: 3}
       propertyPath: m_AnchorMax.x

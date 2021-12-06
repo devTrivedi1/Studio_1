@@ -26,6 +26,7 @@ public class GuardShoot : MonoBehaviour
 		shootingRange = 60f;
 		spawnOffset = new Vector3(0, 0, 2);
 		thePlayer = GameObject.FindGameObjectWithTag("Player");
+		projectileMoveSpeed = 100;
 	}
 
 

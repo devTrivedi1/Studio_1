@@ -84,19 +84,4 @@ public class TransparentMaterial : MonoBehaviour
 			}
 		}
 	}
-
-	void OnTriggerEnter(Collider other)
-	{
-		if (dashed.isDashing)
-		{
-			MakeObjectTransparent();
-		}
-	}
-    void OnTriggerExit(Collider other)
-    {
-        if(dashed.hasDashed)
-        {
-            MakeObjectSolid();
-        }
-    }
 }

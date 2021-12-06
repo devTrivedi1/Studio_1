@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class NextLevel : MonoBehaviour
 {
 	GameObject player;
+	PlayerDash dashCheck;
 	void Awake()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
@@ -21,6 +22,10 @@ public class NextLevel : MonoBehaviour
 		if(scene.name == "Level_3")
 		{
 			player.GetComponent<PlayerDash>().enabled = true;
+			if(dashCheck.isDashing == false)
+			{
+				player.GetComponent<PlayerDash>().enabled = false;
+			}
 		}
 		if(scene.name == "Level_4")
 		{
