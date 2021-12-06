@@ -548,7 +548,7 @@ MonoBehaviour:
   distanceToPlayer: 0
   mask:
     serializedVersion: 2
-    m_Bits: 132
+    m_Bits: 4484
 --- !u!114 &1408083740544350505
 MonoBehaviour:
   m_ObjectHideFlags: 0
