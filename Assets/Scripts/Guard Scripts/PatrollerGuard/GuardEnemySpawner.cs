@@ -10,6 +10,8 @@ public class GuardEnemySpawner : MonoBehaviour
     private Vector3 pos;
     private float timer;
 
+    public int enemiesSpawned = 0;
+    public int maxSpawn = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,10 @@ public class GuardEnemySpawner : MonoBehaviour
     }
     public void SpawnEnemies()
     {
+        if(enemiesSpawned < maxSpawn)
+        {
+
+        }
         if (timer > spawnDelay)
         {
             Instantiate(spawnEnemies, transform.TransformPoint(pos), transform.rotation);
