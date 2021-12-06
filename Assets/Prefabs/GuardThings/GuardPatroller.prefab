@@ -170,9 +170,10 @@ MonoBehaviour:
   viewAngle: 0
   viewMask:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 388
   guardRotation: {fileID: 0}
   guardEnemySpawner: {fileID: 0}
+  playerDetectionRange: 30
 --- !u!114 &1442791182519308834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnEnemies: {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+  currentSpawnCount: 0
+  maxSpawnCount: 3
 --- !u!1 &1442791183845562244
 GameObject:
   m_ObjectHideFlags: 0

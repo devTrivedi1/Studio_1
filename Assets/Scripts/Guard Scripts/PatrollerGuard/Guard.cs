@@ -25,6 +25,9 @@ public class Guard : MonoBehaviour
 	public GuardRotation guardRotation;
 	public GuardEnemySpawner guardEnemySpawner;
 
+	public float playerDetectionRange;
+	
+
 	void Start()
 	{
 
@@ -50,8 +53,8 @@ public class Guard : MonoBehaviour
 
 	void Update()
 	{
-		
-		if (guardRotation.inFacingRange)
+
+		if (Vector3.Distance(transform.position, player.transform.position) < playerDetectionRange && !Physics.Linecast(transform.position, player.transform.position, viewMask))
 		{
 			spotLight.color = Color.red;
 			guardEnemySpawner.SpawnEnemies();
@@ -60,7 +63,8 @@ public class Guard : MonoBehaviour
 		{
 			spotLight.color = originalSpotLightColor;
 		}
-	}
+
+	}   
 
 
 	IEnumerator FollowPath(Vector3[] waypoints)
