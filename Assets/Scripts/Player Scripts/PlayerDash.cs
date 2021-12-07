@@ -62,8 +62,8 @@ public class PlayerDash : MonoBehaviour
             isDashing = true;
 
 
-            rb.velocity = forwardDash * dashSpeed;
-            hasDashed = true;
+			rb.velocity = forwardDash * dashSpeed;
+			hasDashed = true;
 
 
 
@@ -152,8 +152,9 @@ public class PlayerDash : MonoBehaviour
 		else if (hasDashed)
 		{
 			playerMovement.enabled = true;
-			this.enabled = false;
+			//this.enabled = false;
 		}
 	}
-	
+  
+
 }

@@ -10,7 +10,7 @@ public class GuardShoot : MonoBehaviour
 
 	private Vector3 spawnOffset;
 
-	public float shootingRange = 40f;
+	public float shootingRange;
 	public float distanceToPlayer;
 	private GameObject thePlayer;
 	public bool inShootingRange;
@@ -26,6 +26,7 @@ public class GuardShoot : MonoBehaviour
 		shootingRange = 60f;
 		spawnOffset = new Vector3(0, 0, 2);
 		thePlayer = GameObject.FindGameObjectWithTag("Player");
+		projectileMoveSpeed = 100f;
 	}
 
 

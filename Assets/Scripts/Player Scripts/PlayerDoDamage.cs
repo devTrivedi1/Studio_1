@@ -65,9 +65,11 @@ public class PlayerDoDamage : MonoBehaviour
                 {
                     var shooterGuard = shooterGuards[i].GetComponent<ShooterGuardTakeDamage>();
                     shooterGuard.shooterCurrentHealth -= currentDamage;
+                    
+                     shooterGuard.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position + Vector3.up, explosionRadius);
 
-                    var shooterGuardRb = shooterGuards[i].GetComponent<Rigidbody>();
-                    shooterGuardRb.AddExplosionForce(explosionForce, shooterGuardRb.position, explosionRadius, upwardsModifier);
+                    /*var shooterGuardRb = shooterGuards[i].GetComponent<Rigidbody>();
+                    shooterGuardRb.AddExplosionForce(explosionForce, shooterGuardRb.position, explosionRadius, upwardsModifier);*/
                    /* shooterGuardRb.AddForce(new Vector3(0, 15, 0), ForceMode.Impulse);
                     if(shooterGuardRb.position.y > 30)
                     {
@@ -82,7 +84,9 @@ public class PlayerDoDamage : MonoBehaviour
                 {
                     var patrollingGuard = patrollingGuards[i].GetComponent<PatrollingGuardTakeDamage>();
                     patrollingGuard.patrollerCurrentHealth -= currentDamage;
-                    
+
+                    patrollingGuard.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position + Vector3.up, explosionRadius);
+
                 }
             }
             for (int i = 0; i < chaserGuards.Length; i++)
@@ -91,7 +95,9 @@ public class PlayerDoDamage : MonoBehaviour
                 {
                     var chaserGuard = chaserGuards[i].GetComponent<ChaserGuardTakeDamage>();
                     chaserGuard.chaserCurrentHealth -= currentDamage;
-                    
+
+                    chaserGuard.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position + Vector3.up, explosionRadius);
+
                 }
             }
            
