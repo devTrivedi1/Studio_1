@@ -21,7 +21,6 @@ public class PlayerPhase : MonoBehaviour
 	void Update()
 	{
 		CheckPhaseConditions();
-		ReEnableObstacleCollider();
 
 	}
 	public void CheckPhaseConditions()
@@ -29,27 +28,27 @@ public class PlayerPhase : MonoBehaviour
 		if (playerDash.isDashing)
 		{
 			canPhase = true;
+			ToggleObstacleCollider(false);
+
 		}
 		else if (playerDash.hasDashed)
 		{
 			canPhase = false;
+			ToggleObstacleCollider(true);
 		}
 	}
 
-	public void ReEnableObstacleCollider()
+	public void ToggleObstacleCollider(bool enabled)
 	{
-		if (canPhase == false)
+		GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+		for (int i = 0; i < obstacles.Length; i++)
 		{
-			GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-			for (int i = 0; i < obstacles.Length; i++)
-			{
-				BoxCollider obstacleCollider = obstacles[i].GetComponent<BoxCollider>();
+			BoxCollider obstacleCollider = obstacles[i].GetComponent<BoxCollider>();
 
-				obstacleCollider.enabled = true;
-				Debug.Log("Enabled collider");
-
-			}
+			obstacleCollider.enabled = enabled;
+			Debug.Log("Enabled collider");
 		}
+
 	}
 
 

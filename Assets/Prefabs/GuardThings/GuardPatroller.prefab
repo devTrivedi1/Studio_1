@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc3d866d70da1140af941109bfe3915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEnemies: {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+  spawnEnemies: {fileID: 8661287133654615941, guid: 82a214e77b6cde046b783e9d76d41d9f, type: 3}
   currentSpawnCount: 0
   maxSpawnCount: 3
 --- !u!1 &1442791183845562244

@@ -71,54 +71,27 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Move()
 	{
-		
-       
-        //rb.velocity = (targetPosition - this.transform.position) * moveSpeed * Time.fixedDeltaTime;
-        if (playerLunge.isGrounded == false)
-        {
-            Vector3 direction = targetPosition - this.transform.position;
-            rb.velocity = direction * (moveSpeed * Time.deltaTime);
-        }
-        else
-        {
-            Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0, targetPosition.z - transform.position.z);
-            rb.velocity = direction * (moveSpeed * Time.deltaTime);
-        }
 
+		if (playerLunge.isGrounded == false)
+		{
+			Vector3 direction = targetPosition - this.transform.position;
+			rb.velocity = direction.normalized * moveSpeed;
+		}
+		else
+		{
+			Vector3 direction = new Vector3(targetPosition.x - rb.position.x, 0, targetPosition.z - rb.position.z);
 
-        if (transform.position == targetPosition)
-        {
-            rb.velocity = Vector3.zero;
-        }
-		
+			if (direction.magnitude > .05)
+			{
+				rb.velocity = direction.normalized * moveSpeed;
+			}
+		}
 
-
-		/* rb.velocity = Vector3.MoveTowards(this.transform.position, targetPosition + offset, moveSpeed * Time.deltaTime); */
-		/* transform.rotation = Quaternion.Slerp(transform.rotation, playerRot, moveSpeed * Time.deltaTime); */
-		//newPosition = Vector3.MoveTowards(transform.position, targetPosition + offset, moveSpeed * Time.deltaTime);
-		//transform.position = newPosition;
 	}
+
 	public void ReleaseDamage()
 	{
 		rb.AddExplosionForce(10, new Vector3(10, 10, 10), 10, 1, ForceMode.Impulse);
 	}
 
-	private void OnCollisionEnter(Collision collision)
-	{
-		/* if (collision.gameObject.tag == "Ground")
-		{
-			rb.velocity = Vector3.zero;
-		}
-		if (collision.gameObject.tag == "TrapPanel")
-		{
-			rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-		} */
-	}
-	/*  private void OnCollisionExit(Collision collision)
-	  {
-		  if(collision.gameObject.tag == "TrapPanel")
-		  {
-			  Destroy(collision.gameObject);
-		  }
-	  }*/
 }

@@ -53,7 +53,6 @@ public class PlayerLauncher : MonoBehaviour
 		{
 			playerMovement.moveSpeed = maxSpeed;
 		}
-
 	}
 	public IEnumerator SpeedBoostDuration()
 	{
@@ -63,7 +62,6 @@ public class PlayerLauncher : MonoBehaviour
 			currentSpeedBoost = 0;
 			playerMovement.moveSpeed = 50f;
 		}
-
 	}
 
 

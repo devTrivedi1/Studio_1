@@ -23,7 +23,7 @@ public class GuardShoot : MonoBehaviour
 	void Start()
 	{
 		startSpawn = 1;
-		shootingRange = 60f;
+		shootingRange = 40f;
 		spawnOffset = new Vector3(0, 0, 2);
 		thePlayer = GameObject.FindGameObjectWithTag("Player");
 		projectileMoveSpeed = 100;

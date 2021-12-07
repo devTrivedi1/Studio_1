@@ -13,7 +13,6 @@ public class ChaserHealthDisplayer : MonoBehaviour
     void Start()
     {
         slider = GetComponent<Slider>();
-        chaserGuard = GetComponent<ChaserGuardTakeDamage>();
     }
 
     // Update is called once per frame
