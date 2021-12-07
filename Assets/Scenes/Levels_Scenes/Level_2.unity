@@ -3927,14 +3927,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuardPatroller_1
       objectReference: {fileID: 0}
-    - target: {fileID: 1442791182519308834, guid: d3d614acc64d6a646901f6099390fa2c, type: 3}
-      propertyPath: mask.m_Bits
-      value: 260
-      objectReference: {fileID: 0}
-    - target: {fileID: 1442791182519308862, guid: d3d614acc64d6a646901f6099390fa2c, type: 3}
-      propertyPath: viewMask.m_Bits
-      value: 388
-      objectReference: {fileID: 0}
     - target: {fileID: 7649540893687217442, guid: d3d614acc64d6a646901f6099390fa2c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4691,6 +4683,10 @@ PrefabInstance:
     - target: {fileID: 336476995092473163, guid: dd499c0643324ef49a8b1f957b57b1f9, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 336476995092473264, guid: dd499c0643324ef49a8b1f957b57b1f9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 336476995092473266, guid: dd499c0643324ef49a8b1f957b57b1f9, type: 3}
       propertyPath: m_Material

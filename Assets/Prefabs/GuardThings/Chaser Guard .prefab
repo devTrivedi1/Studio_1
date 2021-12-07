@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &102472414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865394448331275758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d05fbf098f6d4214ebf7ffb47f7e7e4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaserGuard: {fileID: 1699172323779627409}
-  fillImage: {fileID: 865394447866526770}
 --- !u!114 &1699172323779627409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,6 +35,20 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 388
+--- !u!114 &102472414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865394448331275758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05fbf098f6d4214ebf7ffb47f7e7e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaserGuard: {fileID: 1699172323779627409}
+  fillImage: {fileID: 865394447866526770}
 --- !u!1001 &865394448277684681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
       propertyPath: m_Name
-      value: Chaser Guard 1
+      value: 'Chaser Guard '
       objectReference: {fileID: 0}
     - target: {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
       propertyPath: m_TagString
