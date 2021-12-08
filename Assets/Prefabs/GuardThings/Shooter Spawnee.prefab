@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 4747630201048544603}
   m_Layer: 0
   m_Name: Shooter Spawnee
-  m_TagString: ShooterGuard
+  m_TagString: ShooterSpawnee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -456,7 +456,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3c49ecdebe7112442ac2851b6b8ad559, type: 2}
+  - {fileID: 2100000, guid: c63b717afcb2ec34a9f05ea057a1a692, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

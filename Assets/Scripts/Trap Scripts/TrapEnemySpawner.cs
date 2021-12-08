@@ -32,7 +32,7 @@ public class TrapEnemySpawner : MonoBehaviour
 		{
 			for (int i = 0; i < enemies.Length; i++)
 			{
-				Instantiate(enemies[i], this.transform.TransformPoint(spawnRange), transform.rotation);
+				Instantiate(enemies[i], this.transform.TransformPoint(spawnRange), Quaternion.identity);
 			}
 		}
 
