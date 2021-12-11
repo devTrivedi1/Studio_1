@@ -115,6 +115,5 @@ public class PlayerDoDamage : MonoBehaviour
 		{
 			playerMovement.playerClicked = false;
 		}
-
 	}
 }

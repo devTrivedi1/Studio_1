@@ -38,7 +38,7 @@ public class ArrowMove : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Wall")
+        if(collision.gameObject.tag == "Wall" || collision.gameObject.tag == "EnemyArrow" || collision.gameObject.tag == "Obstacle")
         {
             Destroy(this.gameObject, 0.5f);
         }
