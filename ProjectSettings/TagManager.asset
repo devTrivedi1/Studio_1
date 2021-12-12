@@ -25,6 +25,7 @@ TagManager:
   - ShooterGuard
   - PatrollingGuard
   - ShooterSpawnee
+  - LungePanel
   layers:
   - Default
   - TransparentFX

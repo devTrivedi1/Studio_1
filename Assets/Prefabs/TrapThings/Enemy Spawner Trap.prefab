@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 8661287133654615941, guid: 80af3ae54cc7ecf4fbea43352deffbb8, type: 3}
+  - {fileID: 8661287133654615941, guid: 82a214e77b6cde046b783e9d76d41d9f, type: 3}
   thePlayer: {fileID: 0}
   trapRange: 0
   playerDistanceToTrap: 0

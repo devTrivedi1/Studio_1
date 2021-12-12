@@ -13,6 +13,7 @@ public class ShooterHealthDisplayer : MonoBehaviour
     void Start()
     {
         slider = GetComponent<Slider>();
+        
     }
 
     // Update is called once per frame

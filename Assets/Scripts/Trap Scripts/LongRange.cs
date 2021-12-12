@@ -67,5 +67,11 @@ public class LongRange : MonoBehaviour
         Instantiate(arrow, transform.position + offset, this.transform.rotation);
         timer = 0;
     }
-
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            Destroy(this);
+        }
+    }
 }

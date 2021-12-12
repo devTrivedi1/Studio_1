@@ -10,7 +10,6 @@ public class PlayerTakeDamage : MonoBehaviour
 	public float playerMaxHealth;
 	private Rigidbody rb;
 
-	// Start is called before the first frame update
 	void Start()
 	{
 		playerMaxHealth = 100;
@@ -18,7 +17,6 @@ public class PlayerTakeDamage : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 
@@ -27,40 +25,36 @@ public class PlayerTakeDamage : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "EnemyArrow")
 		{
-			playerCurrentHealth -= 5;
+			playerCurrentHealth -= 8;
 			Destroy(collision.gameObject);
 			if (playerCurrentHealth <= 0)
 			{
 				Destroy(gameObject);
 				RespawnPlayer();
 			}
-			//Debug.Log("Your health is now " + playerCurrentHealth);
 		}
-		
+
 		if (collision.gameObject.tag == "GuardProjectile")
 		{
 			rb.velocity = Vector3.zero;
-			playerCurrentHealth -= 10;
+			playerCurrentHealth -= 8;
 			if (playerCurrentHealth <= 0)
 			{
 				Destroy(gameObject);
 				RespawnPlayer();
 			}
-			//Debug.Log("your health is " + playerCurrentHealth);
 		}
-		if (collision.gameObject.tag == "GuardChaser")
+		if (collision.gameObject.tag == "ChaserGuard")
 		{
 			rb.velocity = Vector3.zero;
-			playerCurrentHealth -= 25;
+			playerCurrentHealth -= 12;
 			if (playerCurrentHealth <= 0)
 			{
-				//Destroy(gameObject);
+				Destroy(gameObject);
 				RespawnPlayer();
 			}
-			//Debug.Log("your health is " + playerCurrentHealth);
 		}
 	}
-
 	private void RespawnPlayer()
 	{
 		CheckPoint.instance.Respawn();
@@ -70,7 +64,7 @@ public class PlayerTakeDamage : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Trap Spikes")
 		{
-			playerCurrentHealth -= 5;
+			playerCurrentHealth -= 7;
 			if (playerCurrentHealth <= 0)
 			{
 				Destroy(gameObject);

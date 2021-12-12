@@ -5,8 +5,8 @@ using UnityEngine;
 public class Invisibilty : MonoBehaviour
 {
     public GameObject currentGameObject;
-    private Material mat;//material of the player.
-    private float alphaVal;//The level of transparency or 'invisibilty' we want for the player.
+    private Material mat;
+    private float alphaVal;
 
     public float timer = 2f;
     private float currentTimer;
@@ -16,7 +16,7 @@ public class Invisibilty : MonoBehaviour
     private Material playerMat;
 
 
-    // Start is called before the first frame update
+  
     void Start()
     {
         currentGameObject = gameObject;
@@ -26,7 +26,7 @@ public class Invisibilty : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         InvisibiltyTimer();
@@ -39,33 +39,13 @@ public class Invisibilty : MonoBehaviour
             alphaVal = 0.25f;
             currentTimer = timer;
 
-            //ChangeAlpha(currentGameObject.GetComponent<Renderer>().material, alphaVal);
             currentGameObject.GetComponent<Renderer>().material.color = Color.white;
             currentGameObject.layer = LayerMask.NameToLayer("Invisible");
 
             other.gameObject.SetActive(false);
-
         }
-
     }
-    /*public void ChangeAlpha(Material mat, float alphaVal)
-    {
-        Color oldColor = mat.color;
-        Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, alphaVal);
-        mat.SetColor("_Color", newColor);
-
-
-    }*/
-    /*private void OnTriggerExit(Collider other)
-    {
-        currentTimer -= Time.deltaTime;
-        if (currentTimer <= 0)
-        {
-
-            currentGameObject.GetComponent<Renderer>().material.color = mat.color;
-        }
-
-    }*/
+   
     public void InvisibiltyTimer()
     {
         if (isInvisible)
@@ -79,15 +59,5 @@ public class Invisibilty : MonoBehaviour
             }
         }
     }
-    /*public void RevertAlpha(Material mat, float alphaVal)
-    {
-        Color oldColor = mat.color;
-        Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, alphaVal);
-        mat.SetColor("_Color", newColor);
-
-
-    }*/
-
-
 
 }

@@ -10,7 +10,7 @@ public class NextLevel : MonoBehaviour
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
 	}
-	void Update()
+	void Start()
 	{
 		Scene scene = SceneManager.GetActiveScene();
 

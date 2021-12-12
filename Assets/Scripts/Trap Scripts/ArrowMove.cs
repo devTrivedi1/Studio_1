@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowMove : MonoBehaviour
 {
-    public int Speed;
+    public int speed;
     private Rigidbody rb;
 
     public float outOfBounds;
@@ -13,6 +13,7 @@ public class ArrowMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        speed = 30;
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class ArrowMove : MonoBehaviour
     public void Fire()
     {
 
-        Vector3 firePower = transform.forward * Speed;
+        Vector3 firePower = transform.forward * speed;
         rb.velocity = firePower;
 
     }
@@ -37,9 +38,9 @@ public class ArrowMove : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Wall")
+        if(collision.gameObject.tag == "Wall" || collision.gameObject.tag == "EnemyArrow" || collision.gameObject.tag == "Obstacle")
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.5f);
         }
     }
 }

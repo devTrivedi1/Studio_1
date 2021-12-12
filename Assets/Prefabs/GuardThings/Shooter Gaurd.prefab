@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 55491624}
   - component: {fileID: 55491625}
-  - component: {fileID: 55491626}
+  - component: {fileID: 593046605109619209}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -34,10 +34,10 @@ RectTransform:
   m_Father: {fileID: 1075170596}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -93, y: 0}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchorMin: {x: 0.41010445, y: 0.4917211}
+  m_AnchorMax: {x: 0.4927639, y: 0.5094146}
+  m_AnchoredPosition: {x: -0.46066284, y: -0.03260708}
+  m_SizeDelta: {x: 1.4725838, y: -0.56519413}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &55491625
 MonoBehaviour:
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &55491626
+--- !u!114 &593046605109619209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f5cc83321668c42aa681531ad23dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shooterGuard: {fileID: 1408083740544350505}
+  shooterGuard: {fileID: 4747630201048544603}
   fillImage: {fileID: 662846971}
 --- !u!1 &662846969
 GameObject:
@@ -403,9 +403,9 @@ GameObject:
   - component: {fileID: 8661287133654615942}
   - component: {fileID: 8661287133654615943}
   - component: {fileID: 8661287133654615965}
-  - component: {fileID: 8661287133654615963}
   - component: {fileID: 2421886378715916373}
-  - component: {fileID: 1408083740544350505}
+  - component: {fileID: 4849161303535407194}
+  - component: {fileID: 4747630201048544603}
   m_Layer: 0
   m_Name: Shooter Gaurd
   m_TagString: ShooterGuard
@@ -508,7 +508,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &8661287133654615963
+--- !u!114 &2421886378715916373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661287133654615941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e8012b46c516a4289f91c9b638231e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotSpeed: 20
+  inFacingRange: 0
+  facingRange: 70
+  distanceToPlayer: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 388
+--- !u!114 &4849161303535407194
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -530,26 +549,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 388
---- !u!114 &2421886378715916373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8661287133654615941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02e8012b46c516a4289f91c9b638231e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotSpeed: 20
-  inFacingRange: 0
-  facingRange: 70
-  distanceToPlayer: 0
-  mask:
-    serializedVersion: 2
-    m_Bits: 388
---- !u!114 &1408083740544350505
+--- !u!114 &4747630201048544603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

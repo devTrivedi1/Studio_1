@@ -24,7 +24,7 @@ public class TrapEnemySpawner : MonoBehaviour
 	void Update()
 	{
 		SpawnRandomEnemies();
-		spawnRange = new Vector3(Random.Range(-10, 10), 2f, Random.Range(-10, 10));
+		spawnRange = new Vector3(Random.Range(-5, 5), 1.8f, Random.Range(-5, 5));
 	}
 	public void SpawnRandomEnemies()
 	{
@@ -32,7 +32,7 @@ public class TrapEnemySpawner : MonoBehaviour
 		{
 			for (int i = 0; i < enemies.Length; i++)
 			{
-				Instantiate(enemies[i], transform.TransformPoint(spawnRange), transform.rotation);
+				Instantiate(enemies[i], this.transform.TransformPoint(spawnRange), Quaternion.identity);
 			}
 		}
 

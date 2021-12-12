@@ -69,56 +69,29 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void Move()
-    {
+	public void Move()
+	{
 
-
-        //if (playerLunge.isGrounded == false)
-        //{
-        //    Vector3 direction = targetPosition - this.transform.position;
-        //    rb.velocity = direction * moveSpeed;
-        //}
-        //else
-        {
-            Vector3 direction = new Vector3(targetPosition.x - rb.position.x, 0, targetPosition.z - rb.position.z);
-
-            if (direction.magnitude > .05)
-            {
-                rb.velocity = direction;
-
-            }
-
-        }
-
-
-        if (transform.position == targetPosition)
-        {
-            rb.velocity = Vector3.zero;
-        }
-
-
-    }
-    public void ReleaseDamage()
-    {
-        rb.AddExplosionForce(10, new Vector3(10, 10, 10), 10, 1, ForceMode.Impulse);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        /* if (collision.gameObject.tag == "Ground")
+		if (playerLunge.isGrounded == false)
 		{
-			rb.velocity = Vector3.zero;
+			Vector3 direction = targetPosition - this.transform.position;
+			rb.velocity = direction.normalized * moveSpeed;
 		}
-		if (collision.gameObject.tag == "TrapPanel")
+		else
 		{
-			rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-		} */
-    }
-    /*  private void OnCollisionExit(Collision collision)
-	  {
-		  if(collision.gameObject.tag == "TrapPanel")
-		  {
-			  Destroy(collision.gameObject);
-		  }
-	  }*/
+			Vector3 direction = new Vector3(targetPosition.x - rb.position.x, 0, targetPosition.z - rb.position.z);
+
+			if (direction.magnitude > .05)
+			{
+				rb.velocity = direction.normalized * moveSpeed;
+			}
+		}
+
+	}
+
+	public void ReleaseDamage()
+	{
+		rb.AddExplosionForce(10, new Vector3(10, 10, 10), 10, 1, ForceMode.Impulse);
+	}
+
 }

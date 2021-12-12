@@ -43,9 +43,7 @@ public class PlayerLunge : MonoBehaviour
 		//float y = lungeHeight;
 		//float z = rb.velocity.z;
 		float lungeDirection = 30;
-		Vector3 lungePower = new Vector3(x, lungeHeight - 4, lungeDirection);
-
-
+		Vector3 lungePower = new Vector3(x, lungeHeight + 3, lungeDirection);
 		if (shouldLunge && isGrounded)
 		{
 			//Debug.Log("you lunged");
@@ -56,7 +54,6 @@ public class PlayerLunge : MonoBehaviour
 			shouldLunge = false;
 			/* Debug.Log("your velocity is " + rb.velocity); */
 		}
-
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
@@ -71,6 +68,13 @@ public class PlayerLunge : MonoBehaviour
 		if (shouldLunge && isGrounded == false)
 		{
 			shouldLunge = false;
+		}
+	}
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "LungePanel")
+		{
+			isGrounded = true;
 		}
 	}
 	public void MaintainVelocity()

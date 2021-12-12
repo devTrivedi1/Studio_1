@@ -7,11 +7,11 @@ public class TransparentMaterial : MonoBehaviour
 	[SerializeField] List<ObjectInTheWay> currentlyBlocking;
 	[SerializeField] List<ObjectInTheWay> alreadyTransparent;
 	[SerializeField] private Transform player;
+
 	private Transform camera;
 	private PlayerDash dashed;
 	public LayerMask mask;
 
-	// Start is called before the first frame update
 	void Start()
 	{
 		currentlyBlocking = new List<ObjectInTheWay>();
@@ -19,7 +19,6 @@ public class TransparentMaterial : MonoBehaviour
 		camera = this.gameObject.transform;
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		GetAllObjects();
@@ -84,19 +83,4 @@ public class TransparentMaterial : MonoBehaviour
 			}
 		}
 	}
-
-	void OnTriggerEnter(Collider other)
-	{
-		if (dashed.isDashing)
-		{
-			MakeObjectTransparent();
-		}
-	}
-    void OnTriggerExit(Collider other)
-    {
-        if(dashed.hasDashed)
-        {
-            MakeObjectSolid();
-        }
-    }
 }

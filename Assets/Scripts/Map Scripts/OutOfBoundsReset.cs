@@ -5,7 +5,7 @@ using UnityEngine;
 public class OutOfBoundsReset : MonoBehaviour
 {
 	[SerializeField] GameObject playerR;
-	private Vector3 checkpointPosition = new Vector3(-390, 2f, -45f);
+	public Vector3 checkpointPosition = new Vector3(-449.9f, 2f, -54.8f);
 	// Start is called before the first frame update
 	void Start()
 	{

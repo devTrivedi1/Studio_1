@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 620821ec96e9f27499664eebe0662689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
-  outOfBounds: 305
+  speed: 0
+  outOfBounds: 40
 --- !u!65 &6578420683175588307
 BoxCollider:
   m_ObjectHideFlags: 0

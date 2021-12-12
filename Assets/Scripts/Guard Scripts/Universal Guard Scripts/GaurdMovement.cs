@@ -22,8 +22,8 @@ public class GaurdMovement : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		thePlayer = GameObject.FindGameObjectWithTag("Player");
 		moveSpeed = 10;
-		rotSpeed = 20;
-		chasingRange = 50;
+		rotSpeed = 30;
+		chasingRange = 60;
 	}
 
 	// Update is called once per frame
@@ -49,8 +49,10 @@ public class GaurdMovement : MonoBehaviour
 		if (inChasingRange && !Physics.Linecast(transform.position, this.thePlayer.transform.position, mask))
 		{
 			Vector3 target = thePlayer.transform.position;
-			transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-			moveSpeed += 6.5f * Time.deltaTime;
+			Vector3 moveDirection = (thePlayer.transform.position - this.transform.position).normalized;
+			rb.AddForce(moveDirection * moveSpeed);
+
+			moveSpeed += 5.5f * Time.deltaTime;
 			if (moveSpeed >= 40)
 			{
 				moveSpeed = 40f;

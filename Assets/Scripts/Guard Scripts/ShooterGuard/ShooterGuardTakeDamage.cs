@@ -20,7 +20,7 @@ public class ShooterGuardTakeDamage : MonoBehaviour
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag == "Player")
+		if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "EnemyArrow")
 		{
 			shooterCurrentHealth -= 25;
 		}
