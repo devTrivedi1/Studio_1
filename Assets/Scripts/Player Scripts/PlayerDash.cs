@@ -82,7 +82,7 @@ public class PlayerDash : MonoBehaviour
 		else if (hasDashed)
 		{
 			playerMovement.enabled = true;
-			this.enabled = false;
+			//this.enabled = false;
 		}
 	}
 }

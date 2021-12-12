@@ -10,7 +10,7 @@ public class GuardShoot : MonoBehaviour
 
 	private Vector3 spawnOffset;
 
-	public float shootingRange = 40f;
+	public float shootingRange;
 	public float distanceToPlayer;
 	private GameObject thePlayer;
 	public bool inShootingRange;

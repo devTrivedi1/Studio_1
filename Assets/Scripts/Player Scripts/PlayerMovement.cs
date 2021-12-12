@@ -4,69 +4,69 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-	public Vector3 targetPosition;
-	public Vector3 lookAtTarget;
-	public bool playerClicked;
-	Quaternion playerRot;
-	public float moveSpeed = 50f;
-	private Vector3 offset = new Vector3(0, 1.5f, 0);
+    public Vector3 targetPosition;
+    public Vector3 lookAtTarget;
+    public bool playerClicked;
+    Quaternion playerRot;
+    public float moveSpeed = 50f;
+    private Vector3 offset = new Vector3(0, 1.5f, 0);
 
-	public Vector3 newPosition;
-	public LayerMask layerMask;
-	private Rigidbody rb;
+    public Vector3 newPosition;
+    public LayerMask layerMask;
+    private Rigidbody rb;
 
-	public PlayerLauncher playerLauncher;
-	public PlayerLunge playerLunge;
-	//Transform forceTransform;
+    public PlayerLauncher playerLauncher;
+    public PlayerLunge playerLunge;
+    //Transform forceTransform;
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		rb = GetComponent<Rigidbody>();
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
 
-		playerLauncher = GetComponent<PlayerLauncher>();
-		playerLunge = GetComponent<PlayerLunge>();
-	}
+        playerLauncher = GetComponent<PlayerLauncher>();
+        playerLunge = GetComponent<PlayerLunge>();
+    }
 
-	// Update is called once per frame
-	void Update()
-	{
+    // Update is called once per frame
+    void Update()
+    {
 
-		if (Input.GetMouseButtonUp(0))
-		{
-			playerClicked = true;
-			SetTargetPosition();
-		}
-		//Debug.Log(targetPosition);
-	}
+        if (Input.GetMouseButtonUp(0))
+        {
+            playerClicked = true;
+            SetTargetPosition();
+        }
+        //Debug.Log(targetPosition);
+    }
 
 
-	private void FixedUpdate()
-	{
-		if (playerClicked)
-		{
-			Move();
-			playerClicked = false;
-			/* ReleaseDamage(); */
-		}
+    private void FixedUpdate()
+    {
+        if (playerClicked)
+        {
+            Move();
+            playerClicked = false;
+            /* ReleaseDamage(); */
+        }
 
-	}
-	public void SetTargetPosition()
-	{
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		RaycastHit hit;
+    }
+    public void SetTargetPosition()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
-		if (Physics.Raycast(ray, out hit, 1000, layerMask))
-		{
-			targetPosition = hit.point;
-			//Debug.Log("target pos is " + targetPosition);
-			//this.transform.LookAt(targetPosition);
-			lookAtTarget = (targetPosition - transform.position) * Time.fixedDeltaTime;
-			playerRot = Quaternion.LookRotation(lookAtTarget);
+        if (Physics.Raycast(ray, out hit, 1000, layerMask))
+        {
+            targetPosition = hit.point;
+            //Debug.Log("target pos is " + targetPosition);
+            //this.transform.LookAt(targetPosition);
+            lookAtTarget = (targetPosition - transform.position) * Time.fixedDeltaTime;
+            playerRot = Quaternion.LookRotation(lookAtTarget);
 
-		}
+        }
 
-	}
+    }
 
 
 	public void Move()

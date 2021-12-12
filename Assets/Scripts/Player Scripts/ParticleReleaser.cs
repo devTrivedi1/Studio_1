@@ -20,7 +20,7 @@ public class ParticleReleaser : MonoBehaviour
     void Update()
     {
         ReleaseParticles();
-        MaintainParticlesAngle();
+        //MaintainParticlesAngle();
 
         //StopParticles();
     }
@@ -28,21 +28,21 @@ public class ParticleReleaser : MonoBehaviour
     {
         if (playerMovement.playerClicked)
         {
-            attackEnergyBurst.SetActive(true);
+            //attackEnergyBurst.SetActive(true);
             attackEnergyBurst.GetComponent<ParticleSystem>().Play();
-            currentParticleTimer += Time.deltaTime;
+            //currentParticleTimer += Time.deltaTime;
         }
     }
-    public void StopParticles()
+   /* public void StopParticles()
     {
         if(currentParticleTimer > particleTimer)
         {
             currentParticleTimer = 0;
             attackEnergyBurst.GetComponent<ParticleSystem>().Stop();
         }
-    }
-    public void MaintainParticlesAngle()
+    }*/
+   /* public void MaintainParticlesAngle()
     {
         attackEnergyBurst.GetComponent<ParticleSystem>().transform.rotation = this.transform.rotation;
-    }
+    }*/
 }
