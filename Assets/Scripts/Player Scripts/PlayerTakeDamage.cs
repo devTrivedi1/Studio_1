@@ -19,7 +19,7 @@ public class PlayerTakeDamage : MonoBehaviour
 
 	void Update()
 	{
-
+	
 	}
 	private void OnCollisionEnter(Collision collision)
 	{

@@ -17,6 +17,14 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerLauncher playerLauncher;
     public PlayerLunge playerLunge;
+
+    public AudioSource quickMove;
+    public AudioClip quickMoveClip;
+
+    public AudioSource chargedMove;
+    public AudioClip chargedMoveClip;
+
+
     //Transform forceTransform;
 
     // Start is called before the first frame update
@@ -46,8 +54,8 @@ public class PlayerMovement : MonoBehaviour
         if (playerClicked)
         {
             Move();
+            PlayDashingSounds();
             playerClicked = false;
-            /* ReleaseDamage(); */
         }
 
     }
@@ -88,10 +96,16 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 	}
+    public void PlayDashingSounds()
+    {
+        if (moveSpeed <= 100)
+        {
+            quickMove.PlayOneShot(quickMoveClip);
+        }
+        if (moveSpeed > 100)
+        {
+            chargedMove.PlayOneShot(chargedMoveClip);
+        }
 
-	public void ReleaseDamage()
-	{
-		rb.AddExplosionForce(10, new Vector3(10, 10, 10), 10, 1, ForceMode.Impulse);
-	}
-
+    }
 }

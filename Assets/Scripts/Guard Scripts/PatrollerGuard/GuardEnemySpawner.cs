@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GuardEnemySpawner : MonoBehaviour
 {
-	[SerializeField] private GameObject spawnEnemies;
-	private int startSpawn = 1;
-	private int spawnDelay = 1;
-	private Vector3 pos;
-	private float timer;
+    [SerializeField] private GameObject spawnEnemies;
+    private int startSpawn = 1;
+    private int spawnDelay = 1;
+    private Vector3 pos;
+    private float timer;
 
 	public int currentSpawnCount;
 	public int maxSpawnCount;
