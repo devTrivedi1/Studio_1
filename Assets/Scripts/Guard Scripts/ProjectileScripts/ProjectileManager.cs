@@ -12,17 +12,16 @@ public class ProjectileManager : MonoBehaviour
         Physics.IgnoreCollision(this.GetComponent<Collider>(), patrollingGuard.GetComponent<Collider>());
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.tag == "Wall" || collision.transform.tag == "OutOfBounds" || collision.transform.tag == "Obstacle")
+         if (other.transform.tag == "Wall" || other.transform.tag == "OutOfBounds" || other.transform.tag == "Obstacle")
         {
             Destroy(this.gameObject, 0.5f);
         }
-        if(collision.transform.tag == "Player")
+        if(other.transform.tag == "Player")
         {
             Destroy(this.gameObject);
         }
       
-       
     }
 }
