@@ -32,6 +32,10 @@ public class PauseMenu : MonoBehaviour
 				healthBar.SetActive(false);
 			}
 		}
+		if(gamePaused == true && GetComponent<SettingsMenu>().isActiveAndEnabled)
+		{
+			Time.timeScale = 0f;
+		}
 	}
 
 	public void Resume()

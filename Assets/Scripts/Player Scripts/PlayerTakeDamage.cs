@@ -23,27 +23,8 @@ public class PlayerTakeDamage : MonoBehaviour
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag == "EnemyArrow")
-		{
-			playerCurrentHealth -= 8;
-			Destroy(collision.gameObject);
-			if (playerCurrentHealth <= 0)
-			{
-				Destroy(gameObject);
-				RespawnPlayer();
-			}
-		}
+		
 
-		if (collision.gameObject.tag == "GuardProjectile")
-		{
-			rb.velocity = Vector3.zero;
-			playerCurrentHealth -= 8;
-			if (playerCurrentHealth <= 0)
-			{
-				Destroy(gameObject);
-				RespawnPlayer();
-			}
-		}
 		if (collision.gameObject.tag == "ChaserGuard")
 		{
 			rb.velocity = Vector3.zero;
@@ -71,6 +52,25 @@ public class PlayerTakeDamage : MonoBehaviour
 				RespawnPlayer();
 			}
 			Debug.Log("You hit a spike!");
+		}
+		if (other.gameObject.tag == "EnemyArrow")
+		{
+			playerCurrentHealth -= 8;
+			Destroy(other.gameObject);
+			if (playerCurrentHealth <= 0)
+			{
+				Destroy(gameObject);
+				RespawnPlayer();
+			}
+		}
+		if (other.gameObject.tag == "GuardProjectile")
+		{
+			playerCurrentHealth -= 8;
+			if (playerCurrentHealth <= 0)
+			{
+				Destroy(gameObject);
+				RespawnPlayer();
+			}
 		}
 	}
 }

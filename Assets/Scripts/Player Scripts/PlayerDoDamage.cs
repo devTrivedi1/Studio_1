@@ -67,7 +67,6 @@ public class PlayerDoDamage : MonoBehaviour
 
 			float y = rb.velocity.y;
 			y = 0;
-			Debug.Log("u go boom");
 			for (int i = 0; i < shooterGuards.Length; i++)
 			{
 				if (explosionRadius >= Vector3.Distance(transform.position, shooterGuards[i].transform.position))

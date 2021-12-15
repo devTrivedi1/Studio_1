@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowMove : MonoBehaviour
 {
-    public int speed;
+    public float speed;
     private Rigidbody rb;
 
     public float outOfBounds;
@@ -14,33 +14,32 @@ public class ArrowMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         speed = 30;
+       /*  outOfBounds = 30f; */
     }
 
     // Update is called once per frame
     void Update()
     {
         Fire();
-        ArrowOutOfBounds();
+       /*  ArrowOutOfBounds(); */
     }
     public void Fire()
     {
-
         Vector3 firePower = transform.forward * speed;
         rb.velocity = firePower;
-
     }
-    public void ArrowOutOfBounds()
+    /* public void ArrowOutOfBounds()
     {
-        if (transform.position.x >= outOfBounds || transform.position.z >= outOfBounds)
+        if (transform.position.x > outOfBounds || transform.position.z > outOfBounds)
         {
             Destroy(gameObject);
         }
-    }
-    private void OnCollisionEnter(Collision collision)
+    } */
+    void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Wall" || collision.gameObject.tag == "EnemyArrow" || collision.gameObject.tag == "Obstacle")
         {
-            Destroy(this.gameObject, 0.5f);
+            Destroy(this.gameObject);
         }
     }
 }
