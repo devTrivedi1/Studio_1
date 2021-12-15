@@ -19,11 +19,16 @@ public class PlayerDash : MonoBehaviour
 	private float dashCoolDown;
 	public float dashCoolDownReset;
 
+	public AudioSource dashing;
+	public AudioClip dashingClip;
+
 	private PlayerMovement playerMovement;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		dashing.loop = false;
+
 		dashCoolDown = dashCoolDownReset;
 		curretDashTimer = dashTimer;
 
@@ -53,7 +58,14 @@ public class PlayerDash : MonoBehaviour
 			if (isDashing)
 			{
 				rb.velocity = transform.TransformDirection(forwardDash * dashSpeed);
-				hasDashed = isDashing;
+				hasDashed = true;
+                if (!dashing.isPlaying)
+                {
+					dashing.clip = dashingClip;
+					dashing.Stop();
+					dashing.Play();
+
+				}
 			}
 		}
 	}
@@ -82,7 +94,7 @@ public class PlayerDash : MonoBehaviour
 		else if (hasDashed)
 		{
 			playerMovement.enabled = true;
-			//this.enabled = false;
+			this.enabled = false;
 		}
 	}
 }
