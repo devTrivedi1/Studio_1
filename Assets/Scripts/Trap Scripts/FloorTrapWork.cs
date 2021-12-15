@@ -19,6 +19,9 @@ public class FloorTrapWork : MonoBehaviour
     public float lerpTimeDown;
     private float currentLerpTimeDown = 0;
 
+    public AudioSource floorSpikes;
+    public AudioClip floorSpikesClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +43,8 @@ public class FloorTrapWork : MonoBehaviour
         {
             touchedThePlate = true;
             hasTouchedPlate = true;
+
+            floorSpikes.PlayOneShot(floorSpikesClip);
         }
     }
 

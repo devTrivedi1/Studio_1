@@ -10,6 +10,9 @@ public class PlayerLunge : MonoBehaviour
 	public bool isGrounded;
 
 	public PlayerMovement player;
+
+	public AudioSource lunge;
+	public AudioClip lungeClip;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -52,6 +55,7 @@ public class PlayerLunge : MonoBehaviour
 			rb.AddForce(transform.TransformDirection(lungePower), ForceMode.Impulse);
 			isGrounded = false;
 			shouldLunge = false;
+			lunge.PlayOneShot(lungeClip);
 			/* Debug.Log("your velocity is " + rb.velocity); */
 		}
 	}

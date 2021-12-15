@@ -21,8 +21,9 @@ public class NextLevel : MonoBehaviour
 		if(scene.name == "Level_3")
 		{
 			player.GetComponent<PlayerDash>().enabled = true;
+			player.GetComponent<PlayerPhase>().enabled = true;
 		}
-		if(scene.name == "Level_4")
+		if (scene.name == "Level_4")
 		{
 			player.GetComponent<PlayerLunge>().enabled = true;
 		}

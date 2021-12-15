@@ -15,6 +15,8 @@ public class Invisibilty : MonoBehaviour
     private Color myColour;
     private Material playerMat;
 
+    public AudioSource invisibilty;
+    public AudioClip invisibiltyClip;
 
   
     void Start()
@@ -42,7 +44,10 @@ public class Invisibilty : MonoBehaviour
             currentGameObject.GetComponent<Renderer>().material.color = Color.white;
             currentGameObject.layer = LayerMask.NameToLayer("Invisible");
 
+            invisibilty.PlayOneShot(invisibiltyClip);
+
             other.gameObject.SetActive(false);
+
         }
     }
    

@@ -30,10 +30,6 @@ public class ChaserGuardTakeDamage : MonoBehaviour
 			Destroy(this);
 		}
 	}
-	void OnCollisionExit(Collision other)
-	{
-
-	}
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Trap Spikes")

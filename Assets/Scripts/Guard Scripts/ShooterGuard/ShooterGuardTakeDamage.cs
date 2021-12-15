@@ -6,6 +6,9 @@ public class ShooterGuardTakeDamage : MonoBehaviour
 {
 	public float shooterCurrentHealth;
 	public float shooterMaxHealth;
+
+	public AudioSource shooterDeathScream;
+	public AudioClip shooterDeathScreamClip;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -36,7 +39,8 @@ public class ShooterGuardTakeDamage : MonoBehaviour
 	{
 		if (shooterCurrentHealth <= 0)
 		{
-			Destroy(this.gameObject);
+			shooterDeathScream.PlayOneShot(shooterDeathScreamClip);
+			Destroy(this.gameObject, 1);
 		}
 	}
 }

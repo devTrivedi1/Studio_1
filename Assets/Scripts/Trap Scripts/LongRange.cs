@@ -36,13 +36,7 @@ public class LongRange : MonoBehaviour
         DetectPlayer();
         
         timer += Time.deltaTime;
-       
-
     }
-   
-
-
-
     private void DetectPlayer()
     {
         distanceToPlayer = Vector3.Distance(thePlayer.transform.position, transform.position);
@@ -63,7 +57,6 @@ public class LongRange : MonoBehaviour
     }
     public void StartFiring()
     {
-      
         Instantiate(arrow, transform.position + offset, this.transform.rotation);
         timer = 0;
     }
