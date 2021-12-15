@@ -193,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 1442791182519308859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5941002, y: 2.5940998, z: 2.5941}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1442791183845562247}
   - {fileID: 7649540893123508284}
@@ -208,7 +208,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442791182519308859}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 1ae3b6cad3254b848942cea678f244c7, type: 3}
 --- !u!23 &1442791182519308861
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -261,9 +261,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1.58
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!54 &1442791182519308832
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc3d866d70da1140af941109bfe3915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEnemies: {fileID: 2360903505495623773, guid: 4c01fa98efcc513449517c3d35f3d107, type: 3}
+  spawnEnemies: {fileID: 8661287133654615941, guid: 82a214e77b6cde046b783e9d76d41d9f, type: 3}
   currentSpawnCount: 0
   maxSpawnCount: 3
 --- !u!1 &1442791183845562244
@@ -400,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442791183845562244}
   m_LocalRotation: {x: -0.10221785, y: 0.042523254, z: -0.0043735607, w: 0.99384314}
-  m_LocalPosition: {x: 0, y: -0.791, z: 0.187}
+  m_LocalPosition: {x: 0, y: 0.126, z: 0.187}
   m_LocalScale: {x: 0.38549015, y: 0.38549018, z: 0.38549018}
   m_Children: []
   m_Father: {fileID: 1442791182519308863}
@@ -731,7 +731,7 @@ RectTransform:
   m_GameObject: {fileID: 7649540893123508283}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.03}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.01}
+  m_LocalScale: {x: 0.022499999, y: 0.022499999, z: 0.0075}
   m_Children:
   - {fileID: 7649540893803580873}
   m_Father: {fileID: 1442791182519308863}
@@ -739,7 +739,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.04, y: 1.51}
+  m_AnchoredPosition: {x: 0.04, y: 1.377}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7649540893123508287

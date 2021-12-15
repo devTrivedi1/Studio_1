@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6384478313290784576
+--- !u!1 &2288531725287296829
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6384478313290784589}
-  - component: {fileID: 6384478313290784588}
-  - component: {fileID: 6384478313290784579}
-  - component: {fileID: 6384478313290784578}
-  - component: {fileID: 6384478313290784577}
-  m_Layer: 0
-  m_Name: Trap Long Range
-  m_TagString: Untagged
+  - component: {fileID: 2288531725287296825}
+  - component: {fileID: 2288531725287296824}
+  - component: {fileID: 2288531725287296827}
+  - component: {fileID: 2288531725287296826}
+  m_Layer: 6
+  m_Name: Ground
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
---- !u!4 &6384478313290784589
+--- !u!4 &2288531725287296825
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6384478313290784576}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -33.6, y: 4.5, z: -51.3}
-  m_LocalScale: {x: 8, y: 5, z: 0.5}
+  m_GameObject: {fileID: 2288531725287296829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 812.1, y: -0.11841, z: 744.84}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
---- !u!33 &6384478313290784588
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2288531725287296824
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6384478313290784576}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6384478313290784579
+  m_GameObject: {fileID: 2288531725287296829}
+  m_Mesh: {fileID: 4300000, guid: ba44901e27656394a83c87ba14ddbdd9, type: 3}
+--- !u!23 &2288531725287296827
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6384478313290784576}
+  m_GameObject: {fileID: 2288531725287296829}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +60,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb1c6f26c8eb42449b956eea6e2e67ab, type: 2}
+  - {fileID: 2100000, guid: 9728b39f56ce29244a90a8c691493fef, type: 2}
+  - {fileID: 2100000, guid: e0013e2137b0505438cfd424dc546f8f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,35 +83,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6384478313290784578
+--- !u!65 &2288531725287296826
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6384478313290784576}
+  m_GameObject: {fileID: 2288531725287296829}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6384478313290784577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6384478313290784576}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67dd930ecdc2c924db2735a042b4c657, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnDelay: 0
-  arrow: {fileID: 8330955171146639942, guid: bb14bbcf719babc48a2140cbf4973933, type: 3}
-  detectionRange: 20
-  distanceToPlayer: 0
-  thePlayer: {fileID: 336476995092473277, guid: dd499c0643324ef49a8b1f957b57b1f9, type: 3}
-  enemyInRange: 0
-  timer: 0
+  serializedVersion: 2
+  m_Size: {x: 8.362964, y: 0.32, z: 8.368553}
+  m_Center: {x: 3.5609577, y: -0.15, z: 3.494516}
