@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: High_Wall_Obstacle_1
       objectReference: {fileID: 0}
+    - target: {fileID: 7275043732947513675, guid: f02a2c95f15b4b042978e049db35e145, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f02a2c95f15b4b042978e049db35e145, type: 3}
 --- !u!4 &7609686480780828201 stripped
