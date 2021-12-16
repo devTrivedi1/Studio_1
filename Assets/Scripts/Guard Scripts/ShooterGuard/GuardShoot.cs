@@ -44,7 +44,6 @@ public class GuardShoot : MonoBehaviour
 		if (distanceToPlayer <= shootingRange && !Physics.Linecast(transform.position, this.thePlayer.transform.position, layerMask))
 		{
 			inShootingRange = true;
-			Debug.Log("Player is in range");
 			if (timer >= spawnDelay)
 			{
 				StartFiring();

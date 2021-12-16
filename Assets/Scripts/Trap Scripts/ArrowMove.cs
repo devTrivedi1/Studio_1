@@ -14,27 +14,27 @@ public class ArrowMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         speed = 30;
-       /*  outOfBounds = 30f; */
+        outOfBounds = 30f;
     }
 
     // Update is called once per frame
     void Update()
     {
         Fire();
-       /*  ArrowOutOfBounds(); */
+        ArrowOutOfBounds();
     }
     public void Fire()
     {
         Vector3 firePower = transform.forward * speed;
         rb.velocity = firePower;
     }
-    /* public void ArrowOutOfBounds()
+    public void ArrowOutOfBounds()
     {
         if (transform.position.x > outOfBounds || transform.position.z > outOfBounds)
         {
             Destroy(gameObject);
         }
-    } */
+    }
     void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Wall" || collision.gameObject.tag == "EnemyArrow" || collision.gameObject.tag == "Obstacle")

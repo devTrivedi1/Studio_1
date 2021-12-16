@@ -9,7 +9,6 @@ public class ProjectileManager : MonoBehaviour
     void Start()
     {
         patrollingGuard = GameObject.FindGameObjectWithTag("PatrollingGuard");
-        Physics.IgnoreCollision(this.GetComponent<Collider>(), patrollingGuard.GetComponent<Collider>());
     }
 
     void OnTriggerEnter(Collider other)

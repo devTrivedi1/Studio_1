@@ -46,7 +46,6 @@ public class PlayerPhase : MonoBehaviour
 			BoxCollider obstacleCollider = obstacles[i].GetComponent<BoxCollider>();
 
 			obstacleCollider.enabled = enabled;
-			Debug.Log("Enabled collider");
 		}
 
 	}
@@ -58,10 +57,7 @@ public class PlayerPhase : MonoBehaviour
 		{
 			BoxCollider obstacleCollider = collision.gameObject.GetComponent<BoxCollider>();
 			obstacleCollider.enabled = false;
-
-			Debug.Log("Disabled Obstacle Collider");
 		}
-
 	}
 
 }
