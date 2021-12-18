@@ -40,7 +40,7 @@ public class ShooterGuardTakeDamage : MonoBehaviour
 		if (shooterCurrentHealth <= 0)
 		{
 			shooterDeathScream.PlayOneShot(shooterDeathScreamClip);
-			Destroy(this.gameObject, 1);
+			Destroy(this.gameObject, 0.1f);
 		}
 	}
 }
