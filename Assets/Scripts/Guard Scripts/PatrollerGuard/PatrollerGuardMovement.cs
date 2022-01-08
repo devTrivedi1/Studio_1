@@ -14,9 +14,9 @@ public class PatrollerGuardMovement : MonoBehaviour
     public float chasingRange;
 
     public float distanceToPlayer;
-    
+
     public LayerMask mask;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,48 +26,35 @@ public class PatrollerGuardMovement : MonoBehaviour
         chasingRange = 30;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        MoveTowardsPlayer();
-    }
+    void Update() => MoveTowardsPlayer();
 
     public void MoveTowardsPlayer()
     {
         distanceToPlayer = Vector3.Distance(thePlayer.transform.position, this.transform.position);
         if (distanceToPlayer <= chasingRange)
-        {
             inChasingRange = true;
-        }
         else
-        {
             inChasingRange = false;
-        }
 
         if (inChasingRange && !Physics.Linecast(transform.position, this.thePlayer.transform.position, mask))
         {
             Vector3 target = thePlayer.transform.position;
+            target.y = transform.position.y;
             transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+            transform.LookAt(target);
         }
         if (inChasingRange == false)
         {
             rb.velocity = Vector3.zero;
             rb.freezeRotation = true;
         }
-
     }
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
+        if (collision.gameObject.CompareTag("Player"))
             rb.velocity = Vector3.zero;
 
-        }
-        if(collision.gameObject.tag == "GuardProjectile")
-        {
+        if (collision.gameObject.CompareTag("GuardProjectile"))
             rb.velocity = Vector3.zero;
-        }
     }
-
 }

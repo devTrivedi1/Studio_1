@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 1981696232617802323}
   - component: {fileID: 6815169600590959929}
   m_Layer: 0
-  m_Name: GuardProjectile
+  m_Name: Guard_Projectile
   m_TagString: GuardProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

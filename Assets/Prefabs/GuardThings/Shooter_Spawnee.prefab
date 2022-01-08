@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 55491625}
   - component: {fileID: 593046605109619209}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Shooter_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55491623}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -34,10 +34,10 @@ RectTransform:
   m_Father: {fileID: 1075170596}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.41010445, y: 0.4917211}
-  m_AnchorMax: {x: 0.4927639, y: 0.5094146}
-  m_AnchoredPosition: {x: -0.46066284, y: -0.03260708}
-  m_SizeDelta: {x: 1.4725838, y: -0.56519413}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &55491625
 MonoBehaviour:
@@ -58,7 +58,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 662846970}
   m_HandleRect: {fileID: 0}
@@ -190,9 +190,8 @@ GameObject:
   - component: {fileID: 1075170596}
   - component: {fileID: 1075170595}
   - component: {fileID: 1075170594}
-  - component: {fileID: 1075170593}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Shooter_World_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +205,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075170592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.059999466}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.013911483, y: 0.013956268, z: 0.004637161}
   m_Children:
   - {fileID: 55491624}
@@ -215,8 +214,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.18, y: 1.865}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: 0, y: 1.838}
+  m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1075170595
 Canvas:
@@ -262,23 +261,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
---- !u!114 &1075170593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075170592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &1700255845
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +389,7 @@ GameObject:
   - component: {fileID: 4849161303535407194}
   - component: {fileID: 4747630201048544603}
   m_Layer: 0
-  m_Name: Shooter Spawnee
+  m_Name: Shooter_Spawnee
   m_TagString: ShooterSpawnee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,3 +544,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shooterCurrentHealth: 0
   shooterMaxHealth: 0
+  shooterDeathScream: {fileID: 0}
+  shooterDeathScreamClip: {fileID: 0}
